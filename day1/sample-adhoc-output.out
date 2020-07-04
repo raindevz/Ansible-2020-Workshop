@@ -1,0 +1,45 @@
+ansible-playbook 2.9.10
+  config file = /home/training/day1/ansible.cfg
+  configured module search path = ['/home/training/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/local/lib/python3.6/site-packages/ansible
+  executable location = /usr/local/bin/ansible-playbook
+  python version = 3.6.8 (default, Apr 16 2020, 01:36:27) [GCC 8.3.1 20191121 (Red Hat 8.3.1-5)]
+Using /home/training/day1/ansible.cfg as config file
+
+PLAYBOOK: convert.yml *****************************************************************************************
+1 plays in convert.yml
+
+PLAY [Convert Adhoc to playbook] ******************************************************************************
+
+TASK [Gathering Facts] ****************************************************************************************
+task path: /home/training/day1/convert.yml:2
+ok: [10.240.0.9]
+ok: [10.240.0.7]
+ok: [10.240.0.8]
+META: ran handlers
+
+TASK [ping pong] **********************************************************************************************
+task path: /home/training/day1/convert.yml:6
+ok: [10.240.0.7] => {"changed": false, "ping": "pong"}
+ok: [10.240.0.9] => {"changed": false, "ping": "pong"}
+ok: [10.240.0.8] => {"changed": false, "ping": "pong"}
+
+TASK [show id] ************************************************************************************************
+task path: /home/training/day1/convert.yml:9
+changed: [10.240.0.9] => {"changed": true, "cmd": "id", "delta": "0:00:00.006313", "end": "2020-07-04 03:26:56.772938", "rc": 0, "start": "2020-07-04 03:26:56.766625", "stderr": "", "stderr_lines": [], "stdout": "uid=0(root) gid=0(root) groups=0(root) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023", "stdout_lines": ["uid=0(root) gid=0(root) groups=0(root) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023"]}
+changed: [10.240.0.7] => {"changed": true, "cmd": "id", "delta": "0:00:00.005585", "end": "2020-07-04 03:26:56.766177", "rc": 0, "start": "2020-07-04 03:26:56.760592", "stderr": "", "stderr_lines": [], "stdout": "uid=0(root) gid=0(root) groups=0(root) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023", "stdout_lines": ["uid=0(root) gid=0(root) groups=0(root) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023"]}
+changed: [10.240.0.8] => {"changed": true, "cmd": "id", "delta": "0:00:00.008819", "end": "2020-07-04 03:26:56.786117", "rc": 0, "start": "2020-07-04 03:26:56.777298", "stderr": "", "stderr_lines": [], "stdout": "uid=0(root) gid=0(root) groups=0(root) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023", "stdout_lines": ["uid=0(root) gid=0(root) groups=0(root) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023"]}
+
+TASK [show disk partition] ************************************************************************************
+task path: /home/training/day1/convert.yml:12
+changed: [10.240.0.7] => {"changed": true, "cmd": "fdisk -l /dev/sda", "delta": "0:00:00.005792", "end": "2020-07-04 03:26:57.309488", "rc": 0, "start": "2020-07-04 03:26:57.303696", "stderr": "", "stderr_lines": [], "stdout": "Disk /dev/sda: 20 GiB, 21474836480 bytes, 41943040 sectors\nUnits: sectors of 1 * 512 = 512 bytes\nSector size (logical/physical): 512 bytes / 4096 bytes\nI/O size (minimum/optimal): 4096 bytes / 4096 bytes\nDisklabel type: gpt\nDisk identifier: F3391686-241C-46C7-998D-B4945CCC11F8\n\nDevice      Start      End  Sectors  Size Type\n/dev/sda1    2048   411647   409600  200M EFI System\n/dev/sda2  411648 41940991 41529344 19.8G Linux filesystem", "stdout_lines": ["Disk /dev/sda: 20 GiB, 21474836480 bytes, 41943040 sectors", "Units: sectors of 1 * 512 = 512 bytes", "Sector size (logical/physical): 512 bytes / 4096 bytes", "I/O size (minimum/optimal): 4096 bytes / 4096 bytes", "Disklabel type: gpt", "Disk identifier: F3391686-241C-46C7-998D-B4945CCC11F8", "", "Device      Start      End  Sectors  Size Type", "/dev/sda1    2048   411647   409600  200M EFI System", "/dev/sda2  411648 41940991 41529344 19.8G Linux filesystem"]}
+changed: [10.240.0.9] => {"changed": true, "cmd": "fdisk -l /dev/sda", "delta": "0:00:00.005909", "end": "2020-07-04 03:26:57.365719", "rc": 0, "start": "2020-07-04 03:26:57.359810", "stderr": "", "stderr_lines": [], "stdout": "Disk /dev/sda: 20 GiB, 21474836480 bytes, 41943040 sectors\nUnits: sectors of 1 * 512 = 512 bytes\nSector size (logical/physical): 512 bytes / 4096 bytes\nI/O size (minimum/optimal): 4096 bytes / 4096 bytes\nDisklabel type: gpt\nDisk identifier: F3391686-241C-46C7-998D-B4945CCC11F8\n\nDevice      Start      End  Sectors  Size Type\n/dev/sda1    2048   411647   409600  200M EFI System\n/dev/sda2  411648 41940991 41529344 19.8G Linux filesystem", "stdout_lines": ["Disk /dev/sda: 20 GiB, 21474836480 bytes, 41943040 sectors", "Units: sectors of 1 * 512 = 512 bytes", "Sector size (logical/physical): 512 bytes / 4096 bytes", "I/O size (minimum/optimal): 4096 bytes / 4096 bytes", "Disklabel type: gpt", "Disk identifier: F3391686-241C-46C7-998D-B4945CCC11F8", "", "Device      Start      End  Sectors  Size Type", "/dev/sda1    2048   411647   409600  200M EFI System", "/dev/sda2  411648 41940991 41529344 19.8G Linux filesystem"]}
+changed: [10.240.0.8] => {"changed": true, "cmd": "fdisk -l /dev/sda", "delta": "0:00:00.007407", "end": "2020-07-04 03:26:57.389016", "rc": 0, "start": "2020-07-04 03:26:57.381609", "stderr": "", "stderr_lines": [], "stdout": "Disk /dev/sda: 20 GiB, 21474836480 bytes, 41943040 sectors\nUnits: sectors of 1 * 512 = 512 bytes\nSector size (logical/physical): 512 bytes / 4096 bytes\nI/O size (minimum/optimal): 4096 bytes / 4096 bytes\nDisklabel type: gpt\nDisk identifier: F3391686-241C-46C7-998D-B4945CCC11F8\n\nDevice      Start      End  Sectors  Size Type\n/dev/sda1    2048   411647   409600  200M EFI System\n/dev/sda2  411648 41940991 41529344 19.8G Linux filesystem", "stdout_lines": ["Disk /dev/sda: 20 GiB, 21474836480 bytes, 41943040 sectors", "Units: sectors of 1 * 512 = 512 bytes", "Sector size (logical/physical): 512 bytes / 4096 bytes", "I/O size (minimum/optimal): 4096 bytes / 4096 bytes", "Disklabel type: gpt", "Disk identifier: F3391686-241C-46C7-998D-B4945CCC11F8", "", "Device      Start      End  Sectors  Size Type", "/dev/sda1    2048   411647   409600  200M EFI System", "/dev/sda2  411648 41940991 41529344 19.8G Linux filesystem"]}
+META: ran handlers
+META: ran handlers
+
+PLAY RECAP ****************************************************************************************************
+10.240.0.7                 : ok=4    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+10.240.0.8                 : ok=4    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+10.240.0.9                 : ok=4    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
