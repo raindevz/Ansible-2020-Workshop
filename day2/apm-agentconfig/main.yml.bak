@@ -1,0 +1,40 @@
+---
+- name: Installing APM Agents
+  hosts: all
+
+  - tasks:
+    - name: Check server free disk
+
+
+    - name: Copy tar file
+      copy: 
+        src: advanced_agents_xlinux_8.1.4.0.10.tar
+        dest: /tmp/advanced_agents_xlinux_8.1.4.0.10.tar
+        owner: root
+        group: root
+        mode: '0640'
+
+    - name: Extract tar file
+      unarchive:
+        src: /tmp/advanced_agents_xlinux_8.1.4.0.10.tar
+        dest: /tmp/advanced_agents_xlinux_8.1.4.0.10.tar
+        remote_src: yes
+
+    - name: Install agents
+      block:
+        - name: Run installer
+          shell: "/tmp/APMADV_Agent_Install_8.1.4.0.10/installAPMAgents.sh"
+
+      rescue:
+        - name: Show Log Error
+
+
+    - name: Remove Installer
+        file:
+          path: {{ item }}
+          state: absent
+        with_items:
+          - /tmp/advanced_agents_xlinux_8.1.4.0.10.tar
+          - /tmp/APMADV_Agent_Install_8.1.4.0.10
+
+    - name: Check Agent Status

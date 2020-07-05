@@ -1,0 +1,168 @@
+---
+- name: Install and Configure Web server
+  hosts: web
+  vars:
+    user_name: "Rain"
+
+  tasks:
+  - name: Install Webserver
+    yum:
+      name: httpd
+      state: latest
+
+  - name: Start webserver
+    service:
+      name: httpd
+      state: started
+
+  - name: Create index.html in /var/www/html
+    copy:
+      content: "{{ ansible_distribution }} {{ user_name }}"
+      dest: /var/www/html/index.html
+      owner: training
+      group: training
+      mode: '0755'
+    register: webout
+
+  - name: restart webserver
+    service:
+      name: httpd
+      state: restarted
+    when: webout.changed
+
+- name: Install and Configure InfluxDB
+  hosts: db
+
+  tasks:
+  - name: Add InfluxDB Repository
+    yum_repository:
+      name: influxdb
+      file: influxdb.repo
+      description: InfluxDB Repository
+      baseurl: https://repos.influxdata.com/rhel/7/x86_64/stable/
+      enabled: yes
+      gpgcheck: yes
+      gpgkey: https://repos.influxdata.com/influxdb.key
+
+  - name: Install InfluxDB
+    yum:
+      name: influxdb
+      state: latest
+
+  - name: start and enable InfluxDB
+    service:
+      name: influxdb
+      state: started
+      enabled: yes
+
+  - name: configure InfluxDB
+    copy:
+      src: influxdb.conf
+      dest: /etc/influxdb/influxdb.conf
+      owner: root
+      group: root
+      mode: '0644'
+    register: dbout
+
+  - name: Restart Influxdb
+    service:
+      name: influxdb
+      state: restarted
+    when: dbout.changed
+
+- name: Add database and User using control node
+  hosts: control
+
+  tasks:
+  - name: install infludb-sdk using pip3
+    pip:
+      name: influxdb
+      executable: pip3
+
+  - name: create database in db server
+    influxdb_database:
+      database_name: server_metrics
+      hostname: 10.240.0.8
+
+  - name: create user in db server for server_metrics
+    influxdb_user:
+      user_name: server
+      user_password: s3cr3t
+      hostname: 10.240.0.8
+      grants:
+        - database: "server_metrics"
+          privilege: "all"
+
+
+- name: Install and Configure Grafana
+  hosts: monitor
+
+  tasks:
+  - name: install grafana repo
+    yum_repository:
+      name: grafana
+      description: Grafana Repoistory
+      file: grafana.repo
+      baseurl: https://packages.grafana.com/oss/rpm
+      gpgcheck: yes
+      enabled: yes
+      gpgkey: https://packages.grafana.com/gpg.key
+
+  - name: install Grafana
+    yum:
+      name: grafana
+      state: latest
+
+  - name: start and enable Grafana
+    service:
+      name: grafana-server
+      state: started
+      enabled: yes
+
+- name: Install servermetrics.py
+  hosts: nodes
+  vars:
+    ip: "10.240.0.8"
+    port: "8086"
+    user: "server"
+    password: "s3cr3t"
+    measurement: "server_metrics"
+
+
+  tasks:
+  - name: Install Development Tools
+    yum:
+      name: "@Development tools"
+      state: present
+
+  - name: Install Python3 Development
+    yum:
+      name: python3-devel
+      state: present
+
+  - name: install using pip requirements
+    pip:
+      name:
+        - influxdb
+        - psutil
+      executable: pip3
+
+  - name: render servermetrics.py in /home/training
+    template:
+      src: servermetrics.py.j2
+      dest: /home/training/servermetrics.py
+      owner: training
+      group: training
+      mode: '0755'
+    register: agentout
+
+  - name: run once servermetrics.py
+    shell: "python3 /home/training/servermetrics.py prod"
+    when: agentout.changed
+    
+
+  - name: add in crontab
+    cron:
+      name: server_metrics
+      minute: "*/2"
+      job: "python3 /home/training/servermetrics.py prod"

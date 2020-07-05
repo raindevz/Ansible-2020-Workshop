@@ -1,0 +1,18 @@
+---
+# tasks file for roles/configservices
+
+- name: Configure {{ service_name }} by copying a file
+  copy:
+    content: "{{ file_content }}"
+    src: "{{ src_file }}"
+    dest: "{{ dest_file }}"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: "{{ mode }}"
+  register: serviceout 
+
+- name: Restart {{ service_name }}
+  service:
+    name: "{{ service_name }}"
+    state: restarted
+  when: serviceout.changed

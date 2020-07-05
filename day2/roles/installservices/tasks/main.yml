@@ -1,0 +1,23 @@
+---
+# tasks file for roles/installservices
+- name: Install Repository
+  yum_repository:
+    name: "{{ reponame }}"
+    description: "{{ reponame }} Repository"
+    file: "{{ reponame }}.repo"
+    baseurl: "{{ baseurl }}"
+    gpgcheck: yes
+    enabled: yes
+    gpgkey: "{{ gpgkey_name }}"
+  when: reponame != ""
+
+- name: Install {{ package_name }}
+  yum:
+    name: "{{ package_name }}"
+    state: latest
+
+- name: Start and Enable {{ service_name }}
+  service:
+    name: "{{ service_name }}"
+    state: started
+    enabled: yes
