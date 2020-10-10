@@ -1,0 +1,33 @@
+from influxdb import InfluxDBClient
+import psutil
+import time
+import datetime
+import sys
+
+
+cpu_util = psutil.cpu_percent()
+ram_util_dict = dict(psutil.virtual_memory()._asdict())
+ram_util = ram_util_dict.get('percent')
+disk_util_dict = dict(psutil.disk_usage('/')._asdict())
+disk_util = disk_util_dict.get('percent')
+
+data_points = [
+        {
+            "measurement" : "server_metric",
+            "tags": {
+                "host": "{{ ansible_hostname }}"
+                },
+            "fields": {
+                "cpu": cpu_util,
+                "ram": float(ram_util),
+                "disk": float(disk_util),
+                }
+            }
+        ]
+
+if sys.argv[1] == "test":
+	print(data_points)
+	print(data_points)
+else:
+	client = InfluxDBClient("{{ ip }}",{{ port }}, "{{ user }}", "{{ password }}", "{{ measurement }}")
+	client.write_points(data_points)

@@ -1,0 +1,158 @@
+---
+- name: Install and Configure Web server
+  hosts: web
+  vars:
+    user_name_01: "Rain"
+
+  tasks:
+  - name: Install Webserver using Roles
+    include_role:
+      name: installservices
+    vars:
+      reponame: ""
+      package_name: "httpd"
+      service_name: "httpd"
+
+  - name: Configure WebServer using Roles
+    include_role:
+       name: configservices
+    vars:
+      service_name: "httpd"
+      file_content: "{{ ansible_distribution }} {{ user_name_01 }}"
+      dest_file: "/var/www/html/index.html" 
+      user_name: "training"
+      mode: "0755"
+
+- name: Install and Configure InfluxDB
+  hosts: db
+
+  tasks:
+  - name: Install InfluxDB using Roles
+    include_role:
+      name: installservices
+    vars:
+      reponame: "influxdb"
+      baseurl: "https://repos.influxdata.com/rhel/7/x86_64/stable/"
+      gpgkey_name: "https://repos.influxdata.com/influxdb.key"
+      package_name: "influxdb"
+      service_name: "influxdb"
+
+  - name: Configure InfluxDB using Roles
+    include_role:
+      name: configservices
+    vars:
+      service_name: "influxdb"
+      src_file: "influxdb.conf"
+      dest_file: "/etc/influxdb/influxdb.conf"
+      user_name: "root"
+      mode: "0644"
+
+- name: Add database and User using control node
+  hosts: control
+
+  tasks:
+  - name: install infludb-sdk using pip3
+    pip:
+      name: influxdb
+      executable: pip3
+
+  - name: create database in db server
+    influxdb_database:
+      database_name: server_metrics
+      hostname: 10.240.0.8
+
+  - name: create user in db server for server_metrics
+    influxdb_user:
+      user_name: server
+      user_password: s3cr3t
+      hostname: 10.240.0.8
+      grants:
+        - database: "server_metrics"
+          privilege: "all"
+
+
+- name: Install and Configure Grafana
+  hosts: monitor
+
+  tasks:
+  - name: Install Grafana using Roles
+    include_role:
+      name: installservices
+    vars:
+      reponame: "grafana"
+      baseurl: "https://packages.grafana.com/oss/rpm"
+      gpgkey_name: "https://packages.grafana.com/gpg.key"
+      package_name: "grafana"
+      service_name: "grafana-server"
+
+- name: Install servermetrics.py
+  hosts: nodes
+  vars:
+    ip: "10.240.0.8"
+    port: "8086"
+    user: "server"
+    password: "s3cr3t"
+    measurement: "server_metrics"
+
+
+  tasks:
+  - name: Install Development Tools
+    yum:
+      name: "@Development tools"
+      state: present
+
+  - name: Install Python3 Development
+    yum:
+      name: python3-devel
+      state: present
+
+  - name: install using pip requirements
+    pip:
+      name:
+        - influxdb
+        - psutil
+      executable: pip3
+
+  - name: test servermetrics.py and render when succesfull
+    block:
+      - name: render test servermetrics.py in /home/training
+        template:
+          src: servermetrics.py.j2
+          dest: /home/training/testservermetrics.py
+          owner: training
+          group: training
+          mode: '0755'
+
+      - name: test servermetrics.py
+        shell: "python3 /home/training/testservermetrics.py test"
+        register: testservermetrics
+
+      - name: remove test file
+        file:
+          path: "/home/training/testservermetrics.py"
+          state: absent
+
+      - name: render prod servermetrics.py in /home/training
+        template:
+          src: servermetrics.py.j2
+          dest: /home/training/servermetrics.py
+          owner: training
+          group: training
+          mode: '0755'
+        register: agentout
+
+      - name: run once servermetrics.py
+        shell: "python3 /home/training/servermetrics.py prod"
+        when: agentout.changed
+
+    rescue:
+      - name: remove test file
+        file:
+          path: "/home/training/testservermetrics.py"
+          state: absent
+
+  - name: add in crontab
+    cron:
+      name: server_metrics
+      minute: "*/2"
+      job: "python3 /home/training/servermetrics.py prod"

@@ -1,0 +1,11 @@
+---
+# vars file for roles/servmetrics
+file_path: "/home/training/"
+file_owner: "training"
+file_group: "training"
+file_mode: "0755"
+db_ip: "10.240.0.8"
+db_port: "8086"
+db_user: "server"
+db_password: "s3cr3t"
+db_measurement: "server_metrics"

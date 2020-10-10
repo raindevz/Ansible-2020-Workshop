@@ -1,0 +1,27 @@
+---
+- name: Simulation for Rain
+  hosts: nodes
+
+  tasks:
+
+  - name: Copy tar file
+    copy:
+      src: sample-extract.tar
+      dest: /home/training/rain-test/sample-extract.tar
+      owner: root
+      group: root
+      mode: '0644'
+
+  - name: Extract tar file
+    unarchive:
+      src: /home/training/rain-test/sample-extract.tar
+      dest: /home/training/rain-test/
+      remote_src: yes
+
+  - name: Run script
+    shell: "/home/training/rain-test/check-disk.sh" 
+    register: scriptout
+
+  - name: show script results
+    debug:
+      msg: "{{ scriptout.stdout_lines }}"

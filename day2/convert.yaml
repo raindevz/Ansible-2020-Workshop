@@ -1,0 +1,18 @@
+---
+- name: Convert Adhoc to playbook
+  hosts: nodes
+
+  tasks:
+  - name: ping pong
+    ping:
+
+  - name: show id
+    shell: "id"
+    register: idoutput
+
+  - name: show disk parition
+    shell: "fdisk -l /dev/sda"
+
+  - name: show id results
+    debug:
+      msg: "{{ idoutput.stdout }}"

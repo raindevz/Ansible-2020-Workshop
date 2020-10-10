@@ -1,0 +1,98 @@
+---
+- name: Install and Configure Web server
+  hosts: web
+  vars:
+    user_name_01: "Rain"
+
+  tasks:
+  - name: Install Webserver using Roles
+    include_role:
+      name: installservices
+    vars:
+      reponame: ""
+      package_name: "httpd"
+      service_name: "httpd"
+
+  - name: Configure WebServer using Roles
+    include_role:
+       name: configservices
+    vars:
+      service_name: "httpd"
+      file_content: "{{ ansible_distribution }} {{ user_name_01 }}"
+      dest_file: "/var/www/html/index.html" 
+      user_name: "training"
+      mode: "0755"
+
+- name: Install and Configure InfluxDB
+  hosts: db
+
+  tasks:
+  - name: Install InfluxDB using Roles
+    include_role:
+      name: installservices
+    vars:
+      reponame: "influxdb"
+      baseurl: "https://repos.influxdata.com/rhel/7/x86_64/stable/"
+      gpgkey_name: "https://repos.influxdata.com/influxdb.key"
+      package_name: "influxdb"
+      service_name: "influxdb"
+
+  - name: Configure InfluxDB using Roles
+    include_role:
+      name: configservices
+    vars:
+      service_name: "influxdb"
+      src_file: "influxdb.conf"
+      dest_file: "/etc/influxdb/influxdb.conf"
+      user_name: "root"
+      mode: "0644"
+
+- name: Add database and User using control node
+  hosts: control
+  vars_files:
+    - pass.yml
+
+
+  tasks:
+  - name: install infludb-sdk using pip3
+    pip:
+      name: influxdb
+      executable: pip3
+
+  - name: create database in db server
+    influxdb_database:
+      database_name: server_metrics
+      hostname: 10.240.0.8
+
+  - name: create user in db server for server_metrics
+    influxdb_user:
+      user_name: server
+      user_password: "{{ db_password }}" 
+      hostname: 10.240.0.8
+      grants:
+        - database: "server_metrics"
+          privilege: "all"
+
+
+- name: Install and Configure Grafana
+  hosts: monitor
+
+  tasks:
+  - name: Install Grafana using Roles
+    include_role:
+      name: installservices
+    vars:
+      reponame: "grafana"
+      baseurl: "https://packages.grafana.com/oss/rpm"
+      gpgkey_name: "https://packages.grafana.com/gpg.key"
+      package_name: "grafana"
+      service_name: "grafana-server"
+
+- name: Install servermetrics.py
+  hosts: nodes
+
+  tasks:
+  - name: Install servermetrics.py using Roles
+    include_role:
+      name: servmetrics
+      vars_from: trainingserver.yml

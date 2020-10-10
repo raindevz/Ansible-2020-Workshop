@@ -1,0 +1,769 @@
+ansible-playbook 2.9.10
+  config file = /home/training/day1/ansible.cfg
+  configured module search path = ['/home/training/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/local/lib/python3.6/site-packages/ansible
+  executable location = /usr/local/bin/ansible-playbook
+  python version = 3.6.8 (default, Apr 16 2020, 01:36:27) [GCC 8.3.1 20191121 (Red Hat 8.3.1-5)]
+Using /home/training/day1/ansible.cfg as config file
+host_list declined parsing /home/training/day1/inventory as it did not pass its verify_file() method
+script declined parsing /home/training/day1/inventory as it did not pass its verify_file() method
+auto declined parsing /home/training/day1/inventory as it did not pass its verify_file() method
+Parsed /home/training/day1/inventory inventory source with ini plugin
+
+PLAYBOOK: rain-transfer.yml ***********************************************************************************************
+1 plays in rain-test/rain-transfer.yml
+
+PLAY [Simulation for Rain] ************************************************************************************************
+
+TASK [Gathering Facts] ****************************************************************************************************
+task path: /home/training/day1/rain-test/rain-transfer.yml:2
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca 10.240.0.7 '/bin/sh -c '"'"'echo ~training && sleep 0'"'"''
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb 10.240.0.8 '/bin/sh -c '"'"'echo ~training && sleep 0'"'"''
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 10.240.0.9 '/bin/sh -c '"'"'echo ~training && sleep 0'"'"''
+<10.240.0.7> (0, b'/home/training\n', b'')
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca 10.240.0.7 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/training/.ansible/tmp `"&& mkdir /home/training/.ansible/tmp/ansible-tmp-1593854326.3869689-21320-229551961756418 && echo ansible-tmp-1593854326.3869689-21320-229551961756418="` echo /home/training/.ansible/tmp/ansible-tmp-1593854326.3869689-21320-229551961756418 `" ) && sleep 0'"'"''
+<10.240.0.7> (0, b'ansible-tmp-1593854326.3869689-21320-229551961756418=/home/training/.ansible/tmp/ansible-tmp-1593854326.3869689-21320-229551961756418\n', b'')
+<10.240.0.8> (0, b'/home/training\n', b'')
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb 10.240.0.8 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/training/.ansible/tmp `"&& mkdir /home/training/.ansible/tmp/ansible-tmp-1593854326.4446726-21321-231230637211881 && echo ansible-tmp-1593854326.4446726-21321-231230637211881="` echo /home/training/.ansible/tmp/ansible-tmp-1593854326.4446726-21321-231230637211881 `" ) && sleep 0'"'"''
+<10.240.0.9> (0, b'/home/training\n', b'')
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 10.240.0.9 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/training/.ansible/tmp `"&& mkdir /home/training/.ansible/tmp/ansible-tmp-1593854326.4483044-21322-5687188091404 && echo ansible-tmp-1593854326.4483044-21322-5687188091404="` echo /home/training/.ansible/tmp/ansible-tmp-1593854326.4483044-21322-5687188091404 `" ) && sleep 0'"'"''
+<10.240.0.9> (0, b'ansible-tmp-1593854326.4483044-21322-5687188091404=/home/training/.ansible/tmp/ansible-tmp-1593854326.4483044-21322-5687188091404\n', b'')
+<10.240.0.8> (0, b'ansible-tmp-1593854326.4446726-21321-231230637211881=/home/training/.ansible/tmp/ansible-tmp-1593854326.4446726-21321-231230637211881\n', b'')
+<10.240.0.7> Attempting python interpreter discovery
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca 10.240.0.7 '/bin/sh -c '"'"'echo PLATFORM; uname; echo FOUND; command -v '"'"'"'"'"'"'"'"'/usr/bin/python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.6'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.5'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python2.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python2.6'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/libexec/platform-python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/bin/python3'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python'"'"'"'"'"'"'"'"'; echo ENDFOUND && sleep 0'"'"''
+<10.240.0.8> Attempting python interpreter discovery
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb 10.240.0.8 '/bin/sh -c '"'"'echo PLATFORM; uname; echo FOUND; command -v '"'"'"'"'"'"'"'"'/usr/bin/python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.6'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.5'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python2.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python2.6'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/libexec/platform-python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/bin/python3'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python'"'"'"'"'"'"'"'"'; echo ENDFOUND && sleep 0'"'"''
+<10.240.0.9> Attempting python interpreter discovery
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 10.240.0.9 '/bin/sh -c '"'"'echo PLATFORM; uname; echo FOUND; command -v '"'"'"'"'"'"'"'"'/usr/bin/python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.6'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.5'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python2.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python2.6'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/libexec/platform-python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/bin/python3'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python'"'"'"'"'"'"'"'"'; echo ENDFOUND && sleep 0'"'"''
+<10.240.0.9> (0, b'PLATFORM\nLinux\nFOUND\n/usr/bin/python3.6\n/usr/bin/python2.7\n/usr/libexec/platform-python\n/usr/bin/python3\nENDFOUND\n', b'')
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 10.240.0.9 '/bin/sh -c '"'"'/usr/bin/python3.6 && sleep 0'"'"''
+<10.240.0.8> (0, b'PLATFORM\nLinux\nFOUND\n/usr/bin/python3.6\n/usr/bin/python2.7\n/usr/libexec/platform-python\n/usr/bin/python3\nENDFOUND\n', b'')
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb 10.240.0.8 '/bin/sh -c '"'"'/usr/bin/python3.6 && sleep 0'"'"''
+<10.240.0.7> (0, b'PLATFORM\nLinux\nFOUND\n/usr/bin/python3.6\n/usr/bin/python2.7\n/usr/libexec/platform-python\n/usr/bin/python3\nENDFOUND\n', b'')
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca 10.240.0.7 '/bin/sh -c '"'"'/usr/bin/python3.6 && sleep 0'"'"''
+<10.240.0.8> (0, b'{"platform_dist_result": ["centos", "8.2.2004", "Core"], "osrelease_content": "NAME=\\"CentOS Linux\\"\\nVERSION=\\"8 (Core)\\"\\nID=\\"centos\\"\\nID_LIKE=\\"rhel fedora\\"\\nVERSION_ID=\\"8\\"\\nPLATFORM_ID=\\"platform:el8\\"\\nPRETTY_NAME=\\"CentOS Linux 8 (Core)\\"\\nANSI_COLOR=\\"0;31\\"\\nCPE_NAME=\\"cpe:/o:centos:centos:8\\"\\nHOME_URL=\\"https://www.centos.org/\\"\\nBUG_REPORT_URL=\\"https://bugs.centos.org/\\"\\n\\nCENTOS_MANTISBT_PROJECT=\\"CentOS-8\\"\\nCENTOS_MANTISBT_PROJECT_VERSION=\\"8\\"\\nREDHAT_SUPPORT_PRODUCT=\\"centos\\"\\nREDHAT_SUPPORT_PRODUCT_VERSION=\\"8\\"\\n\\n"}\n', b'')
+Using module file /usr/local/lib/python3.6/site-packages/ansible/modules/system/setup.py
+<10.240.0.8> PUT /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmpbn772rcm TO /home/training/.ansible/tmp/ansible-tmp-1593854326.4446726-21321-231230637211881/AnsiballZ_setup.py
+<10.240.0.8> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb '[10.240.0.8]'
+<10.240.0.9> (0, b'{"platform_dist_result": ["centos", "8.2.2004", "Core"], "osrelease_content": "NAME=\\"CentOS Linux\\"\\nVERSION=\\"8 (Core)\\"\\nID=\\"centos\\"\\nID_LIKE=\\"rhel fedora\\"\\nVERSION_ID=\\"8\\"\\nPLATFORM_ID=\\"platform:el8\\"\\nPRETTY_NAME=\\"CentOS Linux 8 (Core)\\"\\nANSI_COLOR=\\"0;31\\"\\nCPE_NAME=\\"cpe:/o:centos:centos:8\\"\\nHOME_URL=\\"https://www.centos.org/\\"\\nBUG_REPORT_URL=\\"https://bugs.centos.org/\\"\\n\\nCENTOS_MANTISBT_PROJECT=\\"CentOS-8\\"\\nCENTOS_MANTISBT_PROJECT_VERSION=\\"8\\"\\nREDHAT_SUPPORT_PRODUCT=\\"centos\\"\\nREDHAT_SUPPORT_PRODUCT_VERSION=\\"8\\"\\n\\n"}\n', b'')
+Using module file /usr/local/lib/python3.6/site-packages/ansible/modules/system/setup.py
+<10.240.0.9> PUT /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmpadu5wabi TO /home/training/.ansible/tmp/ansible-tmp-1593854326.4483044-21322-5687188091404/AnsiballZ_setup.py
+<10.240.0.9> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 '[10.240.0.9]'
+<10.240.0.7> (0, b'{"platform_dist_result": ["centos", "8.2.2004", "Core"], "osrelease_content": "NAME=\\"CentOS Linux\\"\\nVERSION=\\"8 (Core)\\"\\nID=\\"centos\\"\\nID_LIKE=\\"rhel fedora\\"\\nVERSION_ID=\\"8\\"\\nPLATFORM_ID=\\"platform:el8\\"\\nPRETTY_NAME=\\"CentOS Linux 8 (Core)\\"\\nANSI_COLOR=\\"0;31\\"\\nCPE_NAME=\\"cpe:/o:centos:centos:8\\"\\nHOME_URL=\\"https://www.centos.org/\\"\\nBUG_REPORT_URL=\\"https://bugs.centos.org/\\"\\n\\nCENTOS_MANTISBT_PROJECT=\\"CentOS-8\\"\\nCENTOS_MANTISBT_PROJECT_VERSION=\\"8\\"\\nREDHAT_SUPPORT_PRODUCT=\\"centos\\"\\nREDHAT_SUPPORT_PRODUCT_VERSION=\\"8\\"\\n\\n"}\n', b'')
+Using module file /usr/local/lib/python3.6/site-packages/ansible/modules/system/setup.py
+<10.240.0.7> PUT /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmpeh9qgntf TO /home/training/.ansible/tmp/ansible-tmp-1593854326.3869689-21320-229551961756418/AnsiballZ_setup.py
+<10.240.0.7> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca '[10.240.0.7]'
+<10.240.0.9> (0, b'sftp> put /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmpadu5wabi /home/training/.ansible/tmp/ansible-tmp-1593854326.4483044-21322-5687188091404/AnsiballZ_setup.py\n', b'')
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 10.240.0.9 '/bin/sh -c '"'"'chmod u+x /home/training/.ansible/tmp/ansible-tmp-1593854326.4483044-21322-5687188091404/ /home/training/.ansible/tmp/ansible-tmp-1593854326.4483044-21322-5687188091404/AnsiballZ_setup.py && sleep 0'"'"''
+<10.240.0.7> (0, b'sftp> put /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmpeh9qgntf /home/training/.ansible/tmp/ansible-tmp-1593854326.3869689-21320-229551961756418/AnsiballZ_setup.py\n', b'')
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca 10.240.0.7 '/bin/sh -c '"'"'chmod u+x /home/training/.ansible/tmp/ansible-tmp-1593854326.3869689-21320-229551961756418/ /home/training/.ansible/tmp/ansible-tmp-1593854326.3869689-21320-229551961756418/AnsiballZ_setup.py && sleep 0'"'"''
+<10.240.0.8> (0, b'sftp> put /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmpbn772rcm /home/training/.ansible/tmp/ansible-tmp-1593854326.4446726-21321-231230637211881/AnsiballZ_setup.py\n', b'')
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb 10.240.0.8 '/bin/sh -c '"'"'chmod u+x /home/training/.ansible/tmp/ansible-tmp-1593854326.4446726-21321-231230637211881/ /home/training/.ansible/tmp/ansible-tmp-1593854326.4446726-21321-231230637211881/AnsiballZ_setup.py && sleep 0'"'"''
+<10.240.0.7> (0, b'', b'')
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca -tt 10.240.0.7 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-hhfmlpfxzseeselwvcsaxamwvswoxdeo ; /usr/libexec/platform-python /home/training/.ansible/tmp/ansible-tmp-1593854326.3869689-21320-229551961756418/AnsiballZ_setup.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<10.240.0.9> (0, b'', b'')
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 -tt 10.240.0.9 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-sdfcmjoufzjafpcyibcahbwefbdakbyr ; /usr/libexec/platform-python /home/training/.ansible/tmp/ansible-tmp-1593854326.4483044-21322-5687188091404/AnsiballZ_setup.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<10.240.0.8> (0, b'', b'')
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb -tt 10.240.0.8 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-fxicwtjgrtlenhsagypiohflnwrmifsm ; /usr/libexec/platform-python /home/training/.ansible/tmp/ansible-tmp-1593854326.4446726-21321-231230637211881/AnsiballZ_setup.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+Escalation succeeded
+Escalation succeeded
+Escalation succeeded
+<10.240.0.7> (0, b'\r\n{"ansible_facts": {"ansible_date_time": {"year": "2020", "month": "07", "weekday": "Saturday", "weekday_number": "6", "weeknumber": "26", "day": "04", "hour": "09", "minute": "18", "second": "47", "epoch": "1593854327", "date": "2020-07-04", "time": "09:18:47", "iso8601_micro": "2020-07-04T09:18:47.535331Z", "iso8601": "2020-07-04T09:18:47Z", "iso8601_basic": "20200704T091847535244", "iso8601_basic_short": "20200704T091847", "tz": "UTC", "tz_offset": "+0000"}, "ansible_python": {"version": {"major": 3, "minor": 6, "micro": 8, "releaselevel": "final", "serial": 0}, "version_info": [3, 6, 8, "final", 0], "executable": "/usr/libexec/platform-python", "has_sslcontext": true, "type": "cpython"}, "ansible_user_id": "root", "ansible_user_uid": 0, "ansible_user_gid": 0, "ansible_user_gecos": "root", "ansible_user_dir": "/root", "ansible_user_shell": "/bin/bash", "ansible_real_user_id": 0, "ansible_effective_user_id": 0, "ansible_real_group_id": 0, "ansible_effective_group_id": 0, "ansible_dns": {"search": ["asia-east1-a.c.ansible-tutorial-280014.internal", "c.ansible-tutorial-280014.internal", "google.internal"], "nameservers": ["169.254.169.254"]}, "ansible_fips": false, "ansible_local": {}, "ansible_is_chroot": false, "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQDtkHjJW0gHvImuwP0ufI6FPDjCNsJLXu31Y/RgISi6iRAZxgbqBIiG+0I6sEdyrlVF2gQXUgRgBqfb/AYfSSMFgBWJI/7JRvS1iilxTPgqFZsHJ6XT+TFZja3IqEUR5AXsLaAlFn9Kdm8VImr644eoDdL6mJNQ2mCYv6jgDnNFi5iPeFpchvW7Ko57R1xd/oD5U6JchvCIBGOIHsG7YFReloM6VaH0ClM9TcyBsiBlDr4+x0aLBMuSJIHpl+goKSFkfp7yvfhbrgJYr1Exo57Vc4IwWRzsabMKwOHJPMXQO2PIp4ygzxcoM5+Q00QqHK7zexvZwv3TQARyHURFfZcw7xAhECMXaVaS71LW6ixUFC43+0HVGGQDq3jQgbgw/zVS/9WB5YeX5CpvwEzLbvrgjoUinEB9nqNgXyEmaBRjnZq2xmf4o+EIB5AyrdpSrZoyb2awLpDwo3YNyaGelfVg0eN8rfhn7q3k0pvKRyq2pw36dD8C6weiHthKoffBEd8=", "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBH+4taFlHQmkNHHom8qP52L+6r1XDEU9raW0XEw/H5XE64ueoRQEM0J1yrDFNcxws/r8LmrgMuR0aVkBzQxMSz8=", "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIM73r834uriCTFXyPD4rNFmIbda1afYaFKbJq9FfjuuD", "ansible_distribution": "CentOS", "ansible_distribution_release": "Core", "ansible_distribution_version": "8.2", "ansible_distribution_major_version": "8", "ansible_distribution_file_path": "/etc/redhat-release", "ansible_distribution_file_variety": "RedHat", "ansible_distribution_file_parsed": true, "ansible_os_family": "RedHat", "ansible_system": "Linux", "ansible_kernel": "4.18.0-193.6.3.el8_2.x86_64", "ansible_kernel_version": "#1 SMP Wed Jun 10 11:09:32 UTC 2020", "ansible_machine": "x86_64", "ansible_python_version": "3.6.8", "ansible_fqdn": "user1-node0.asia-east1-a.c.ansible-tutorial-280014.internal", "ansible_hostname": "user1-node0", "ansible_nodename": "user1-node0", "ansible_domain": "asia-east1-a.c.ansible-tutorial-280014.internal", "ansible_userspace_bits": "64", "ansible_architecture": "x86_64", "ansible_userspace_architecture": "x86_64", "ansible_machine_id": "8d8e33672d8e48fac9cbc6f93dfb69cc", "ansible_virtualization_role": "guest", "ansible_virtualization_type": "kvm", "ansible_hostnqn": "", "ansible_iscsi_iqn": "", "ansible_lsb": {}, "ansible_apparmor": {"status": "disabled"}, "ansible_fibre_channel_wwn": [], "ansible_cmdline": {"BOOT_IMAGE": "(hd0,gpt2)/boot/vmlinuz-4.18.0-193.6.3.el8_2.x86_64", "root": "UUID=eee46912-69f0-437b-87cf-511f36d4c4d3", "ro": true, "net.ifnames": "0", "biosdevname": "0", "scsi_mod.use_blk_mq": "Y", "crashkernel": "auto", "console": "ttyS0,38400n8"}, "ansible_proc_cmdline": {"BOOT_IMAGE": "(hd0,gpt2)/boot/vmlinuz-4.18.0-193.6.3.el8_2.x86_64", "root": "UUID=eee46912-69f0-437b-87cf-511f36d4c4d3", "ro": true, "net.ifnames": "0", "biosdevname": "0", "scsi_mod.use_blk_mq": "Y", "crashkernel": "auto", "console": "ttyS0,38400n8"}, "ansible_env": {"LS_COLORS": "rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.m4a=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.oga=01;36:*.opus=01;36:*.spx=01;36:*.xspf=01;36:", "LANG": "en_US.UTF-8", "SUDO_GID": "1001", "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-hhfmlpfxzseeselwvcsaxamwvswoxdeo ; /usr/libexec/platform-python /home/training/.ansible/tmp/ansible-tmp-1593854326.3869689-21320-229551961756418/AnsiballZ_setup.py", "USER": "root", "PWD": "/home/training", "HOME": "/root", "SUDO_USER": "training", "SUDO_UID": "1000", "MAIL": "/var/mail/root", "SHELL": "/bin/bash", "TERM": "xterm", "SHLVL": "1", "LOGNAME": "root", "PATH": "/sbin:/bin:/usr/sbin:/usr/bin", "_": "/usr/libexec/platform-python"}, "ansible_system_capabilities_enforced": "True", "ansible_system_capabilities": ["cap_chown", "cap_dac_override", "cap_dac_read_search", "cap_fowner", "cap_fsetid", "cap_kill", "cap_setgid", "cap_setuid", "cap_setpcap", "cap_linux_immutable", "cap_net_bind_service", "cap_net_broadcast", "cap_net_admin", "cap_net_raw", "cap_ipc_lock", "cap_ipc_owner", "cap_sys_module", "cap_sys_rawio", "cap_sys_chroot", "cap_sys_ptrace", "cap_sys_pacct", "cap_sys_admin", "cap_sys_boot", "cap_sys_nice", "cap_sys_resource", "cap_sys_time", "cap_sys_tty_config", "cap_mknod", "cap_lease", "cap_audit_write", "cap_audit_control", "cap_setfcap", "cap_mac_override", "cap_mac_admin", "cap_syslog", "cap_wake_alarm", "cap_block_suspend", "cap_audit_read+ep"], "ansible_selinux_python_present": true, "ansible_selinux": {"status": "enabled", "policyvers": 31, "config_mode": "enforcing", "mode": "enforcing", "type": "targeted"}, "ansible_processor": ["0", "GenuineIntel", "Intel(R) Xeon(R) CPU @ 2.20GHz"], "ansible_processor_count": 1, "ansible_processor_cores": 1, "ansible_processor_threads_per_core": 1, "ansible_processor_vcpus": 1, "ansible_memtotal_mb": 3525, "ansible_memfree_mb": 1621, "ansible_swaptotal_mb": 0, "ansible_swapfree_mb": 0, "ansible_memory_mb": {"real": {"total": 3525, "used": 1904, "free": 1621}, "nocache": {"free": 3090, "used": 435}, "swap": {"total": 0, "free": 0, "used": 0, "cached": 0}}, "ansible_bios_date": "01/01/2011", "ansible_bios_version": "Google", "ansible_form_factor": "Other", "ansible_product_name": "Google Compute Engine", "ansible_product_serial": "GoogleCloud-3ACDAA5F9C200A6B9BAEA13521115B6F", "ansible_product_uuid": "3acdaa5f-9c20-0a6b-9bae-a13521115b6f", "ansible_product_version": "NA", "ansible_system_vendor": "Google", "ansible_devices": {"sda": {"virtual": 1, "links": {"ids": ["google-persistent-disk-0", "scsi-0Google_PersistentDisk_persistent-disk-0"], "uuids": [], "labels": [], "masters": []}, "vendor": "Google", "model": "PersistentDisk", "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {"sda2": {"links": {"ids": ["google-persistent-disk-0-part2", "scsi-0Google_PersistentDisk_persistent-disk-0-part2"], "uuids": ["eee46912-69f0-437b-87cf-511f36d4c4d3"], "labels": ["root"], "masters": []}, "start": "411648", "sectors": "41529344", "sectorsize": 512, "size": "19.80 GB", "uuid": "eee46912-69f0-437b-87cf-511f36d4c4d3", "holders": []}, "sda1": {"links": {"ids": ["google-persistent-disk-0-part1", "scsi-0Google_PersistentDisk_persistent-disk-0-part1"], "uuids": ["E8B3-A538"], "labels": [], "masters": []}, "start": "2048", "sectors": "409600", "sectorsize": 512, "size": "200.00 MB", "uuid": "E8B3-A538", "holders": []}}, "rotational": "1", "scheduler_mode": "none", "sectors": "41943040", "sectorsize": "512", "size": "20.00 GB", "host": "", "holders": []}}, "ansible_device_links": {"ids": {"sda1": ["google-persistent-disk-0-part1", "scsi-0Google_PersistentDisk_persistent-disk-0-part1"], "sda2": ["google-persistent-disk-0-part2", "scsi-0Google_PersistentDisk_persistent-disk-0-part2"], "sda": ["google-persistent-disk-0", "scsi-0Google_PersistentDisk_persistent-disk-0"]}, "uuids": {"sda2": ["eee46912-69f0-437b-87cf-511f36d4c4d3"], "sda1": ["E8B3-A538"]}, "labels": {"sda2": ["root"]}, "masters": {}}, "ansible_uptime_seconds": 32496, "ansible_mounts": [{"mount": "/", "device": "/dev/sda2", "fstype": "xfs", "options": "rw,seclabel,relatime,attr2,inode64,noquota", "size_total": 21252538368, "size_available": 17714401280, "block_size": 4096, "block_total": 5188608, "block_available": 4324805, "block_used": 863803, "inode_total": 10382336, "inode_available": 10275514, "inode_used": 106822, "uuid": "eee46912-69f0-437b-87cf-511f36d4c4d3"}, {"mount": "/boot/efi", "device": "/dev/sda1", "fstype": "vfat", "options": "rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=ascii,shortname=winnt,errors=remount-ro", "size_total": 209489920, "size_available": 202424320, "block_size": 4096, "block_total": 51145, "block_available": 49420, "block_used": 1725, "inode_total": 0, "inode_available": 0, "inode_used": 0, "uuid": "E8B3-A538"}], "ansible_pkg_mgr": "dnf", "ansible_interfaces": ["eth0", "lo"], "ansible_lo": {"device": "lo", "mtu": 65536, "active": true, "type": "loopback", "promisc": false, "ipv4": {"address": "127.0.0.1", "broadcast": "host", "netmask": "255.0.0.0", "network": "127.0.0.0"}, "ipv6": [{"address": "::1", "prefix": "128", "scope": "host"}], "features": {"rx_checksumming": "on [fixed]", "tx_checksumming": "on", "tx_checksum_ipv4": "off [fixed]", "tx_checksum_ip_generic": "on [fixed]", "tx_checksum_ipv6": "off [fixed]", "tx_checksum_fcoe_crc": "off [fixed]", "tx_checksum_sctp": "on [fixed]", "scatter_gather": "on", "tx_scatter_gather": "on [fixed]", "tx_scatter_gather_fraglist": "on [fixed]", "tcp_segmentation_offload": "on", "tx_tcp_segmentation": "on", "tx_tcp_ecn_segmentation": "on", "tx_tcp_mangleid_segmentation": "on", "tx_tcp6_segmentation": "on", "generic_segmentation_offload": "on", "generic_receive_offload": "on", "large_receive_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "tx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "receive_hashing": "off [fixed]", "highdma": "on [fixed]", "rx_vlan_filter": "off [fixed]", "vlan_challenged": "on [fixed]", "tx_lockless": "on [fixed]", "netns_local": "on [fixed]", "tx_gso_robust": "off [fixed]", "tx_fcoe_segmentation": "off [fixed]", "tx_gre_segmentation": "off [fixed]", "tx_gre_csum_segmentation": "off [fixed]", "tx_ipxip4_segmentation": "off [fixed]", "tx_ipxip6_segmentation": "off [fixed]", "tx_udp_tnl_segmentation": "off [fixed]", "tx_udp_tnl_csum_segmentation": "off [fixed]", "tx_gso_partial": "off [fixed]", "tx_sctp_segmentation": "on", "tx_esp_segmentation": "off [fixed]", "tx_udp_segmentation": "off [fixed]", "tls_hw_rx_offload": "off [fixed]", "fcoe_mtu": "off [fixed]", "tx_nocache_copy": "off [fixed]", "loopback": "on [fixed]", "rx_fcs": "off [fixed]", "rx_all": "off [fixed]", "tx_vlan_stag_hw_insert": "off [fixed]", "rx_vlan_stag_hw_parse": "off [fixed]", "rx_vlan_stag_filter": "off [fixed]", "l2_fwd_offload": "off [fixed]", "hw_tc_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "esp_tx_csum_hw_offload": "off [fixed]", "rx_udp_tunnel_port_offload": "off [fixed]", "tls_hw_tx_offload": "off [fixed]", "rx_gro_hw": "off [fixed]", "tls_hw_record": "off [fixed]"}, "timestamping": ["tx_software", "rx_software", "software"], "hw_timestamp_filters": []}, "ansible_eth0": {"device": "eth0", "macaddress": "42:01:0a:f0:00:07", "mtu": 1460, "active": true, "module": "virtio_net", "type": "ether", "pciid": "virtio1", "speed": -1, "promisc": false, "ipv4": {"address": "10.240.0.7", "broadcast": "global", "netmask": "255.255.255.255", "network": "10.240.0.7"}, "ipv6": [{"address": "fe80::1250:47bf:7c55:bfea", "prefix": "64", "scope": "link"}], "features": {"rx_checksumming": "on [fixed]", "tx_checksumming": "on", "tx_checksum_ipv4": "off [fixed]", "tx_checksum_ip_generic": "on", "tx_checksum_ipv6": "off [fixed]", "tx_checksum_fcoe_crc": "off [fixed]", "tx_checksum_sctp": "off [fixed]", "scatter_gather": "on", "tx_scatter_gather": "on", "tx_scatter_gather_fraglist": "off [fixed]", "tcp_segmentation_offload": "on", "tx_tcp_segmentation": "on", "tx_tcp_ecn_segmentation": "off [fixed]", "tx_tcp_mangleid_segmentation": "off", "tx_tcp6_segmentation": "on", "generic_segmentation_offload": "on", "generic_receive_offload": "on", "large_receive_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "tx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "receive_hashing": "off [fixed]", "highdma": "on [fixed]", "rx_vlan_filter": "off [fixed]", "vlan_challenged": "off [fixed]", "tx_lockless": "off [fixed]", "netns_local": "off [fixed]", "tx_gso_robust": "on [fixed]", "tx_fcoe_segmentation": "off [fixed]", "tx_gre_segmentation": "off [fixed]", "tx_gre_csum_segmentation": "off [fixed]", "tx_ipxip4_segmentation": "off [fixed]", "tx_ipxip6_segmentation": "off [fixed]", "tx_udp_tnl_segmentation": "off [fixed]", "tx_udp_tnl_csum_segmentation": "off [fixed]", "tx_gso_partial": "off [fixed]", "tx_sctp_segmentation": "off [fixed]", "tx_esp_segmentation": "off [fixed]", "tx_udp_segmentation": "off [fixed]", "tls_hw_rx_offload": "off [fixed]", "fcoe_mtu": "off [fixed]", "tx_nocache_copy": "off", "loopback": "off [fixed]", "rx_fcs": "off [fixed]", "rx_all": "off [fixed]", "tx_vlan_stag_hw_insert": "off [fixed]", "rx_vlan_stag_hw_parse": "off [fixed]", "rx_vlan_stag_filter": "off [fixed]", "l2_fwd_offload": "off [fixed]", "hw_tc_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "esp_tx_csum_hw_offload": "off [fixed]", "rx_udp_tunnel_port_offload": "off [fixed]", "tls_hw_tx_offload": "off [fixed]", "rx_gro_hw": "off [fixed]", "tls_hw_record": "off [fixed]"}, "timestamping": ["tx_software", "rx_software", "software"], "hw_timestamp_filters": []}, "ansible_default_ipv4": {"gateway": "10.240.0.1", "interface": "eth0", "address": "10.240.0.7", "broadcast": "global", "netmask": "255.255.255.255", "network": "10.240.0.7", "macaddress": "42:01:0a:f0:00:07", "mtu": 1460, "type": "ether", "alias": "eth0"}, "ansible_default_ipv6": {}, "ansible_all_ipv4_addresses": ["10.240.0.7"], "ansible_all_ipv6_addresses": ["fe80::1250:47bf:7c55:bfea"], "ansible_service_mgr": "systemd", "gather_subset": ["all"], "module_setup": true}, "invocation": {"module_args": {"gather_subset": ["all"], "gather_timeout": 10, "filter": "*", "fact_path": "/etc/ansible/facts.d"}}}\r\n', b'Shared connection to 10.240.0.7 closed.\r\n')
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca 10.240.0.7 '/bin/sh -c '"'"'rm -f -r /home/training/.ansible/tmp/ansible-tmp-1593854326.3869689-21320-229551961756418/ > /dev/null 2>&1 && sleep 0'"'"''
+<10.240.0.8> (0, b'\r\n{"ansible_facts": {"ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQD1qrklJZeXMYe0cU78O+O90+xKK68fskBkaxnB6hbxOk+xwqs7uNKVomypw3pAGRUDFmknqRvZBV/QcboIKhjo+yRNsP3wStSmH01h+34Cj6+93JbDDJ51ShfBwPTOw1TEK4DSlDmYZq0iSi+kTtrQW4Zd2HjZwCDdoijx2GvNVzAQE4GcT5X4rFzwyYQqZ8QyNY8K3LmzknY9l/7AVMPLj3EMR6UxWvANkb4uvMzYSho0dQjxsFIPXYyHFgzVwueNESXFGwHIzvzE5jcY21Jsn8/uwzUyDpZBJ27m8VnttLGAwhUaPfugIFOEU1c6jItnJTS3DCWWW1AV9Mqe4L/4RVn1gqvGIedeGwBLbP9IxbKUwbwyu5TOGnWFX1iITH915qFZgCAGMbz7Mqn3vrY/jmivzdMQAJgUJbJ4fgtPeWv2vHfSG+cN7CZo5mLW4+zXKgrSwihAQFSjQAobsBupESDM/7OEY2BjHqeBCVPPVDHOJhMHxBHIEv54NZxqTxU=", "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKFSuRVe3F/tXcOWyNOXSRWHDdeAZPBAM7z4T2gnyFYnhyC57dRX+K5fWYklNDJzxeCGn3vCkIG48mwrJU0VUs0=", "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIATuBa0rekfWS3U09CGDCoFCbcosdousvX1ctIKnVk5l", "ansible_is_chroot": false, "ansible_system": "Linux", "ansible_kernel": "4.18.0-193.6.3.el8_2.x86_64", "ansible_kernel_version": "#1 SMP Wed Jun 10 11:09:32 UTC 2020", "ansible_machine": "x86_64", "ansible_python_version": "3.6.8", "ansible_fqdn": "user1-node1.asia-east1-a.c.ansible-tutorial-280014.internal", "ansible_hostname": "user1-node1", "ansible_nodename": "user1-node1", "ansible_domain": "asia-east1-a.c.ansible-tutorial-280014.internal", "ansible_userspace_bits": "64", "ansible_architecture": "x86_64", "ansible_userspace_architecture": "x86_64", "ansible_machine_id": "8d8e33672d8e48fac9cbc6f93dfb69cc", "ansible_iscsi_iqn": "", "ansible_fips": false, "ansible_user_id": "root", "ansible_user_uid": 0, "ansible_user_gid": 0, "ansible_user_gecos": "root", "ansible_user_dir": "/root", "ansible_user_shell": "/bin/bash", "ansible_real_user_id": 0, "ansible_effective_user_id": 0, "ansible_real_group_id": 0, "ansible_effective_group_id": 0, "ansible_distribution": "CentOS", "ansible_distribution_release": "Core", "ansible_distribution_version": "8.2", "ansible_distribution_major_version": "8", "ansible_distribution_file_path": "/etc/redhat-release", "ansible_distribution_file_variety": "RedHat", "ansible_distribution_file_parsed": true, "ansible_os_family": "RedHat", "ansible_system_capabilities_enforced": "True", "ansible_system_capabilities": ["cap_chown", "cap_dac_override", "cap_dac_read_search", "cap_fowner", "cap_fsetid", "cap_kill", "cap_setgid", "cap_setuid", "cap_setpcap", "cap_linux_immutable", "cap_net_bind_service", "cap_net_broadcast", "cap_net_admin", "cap_net_raw", "cap_ipc_lock", "cap_ipc_owner", "cap_sys_module", "cap_sys_rawio", "cap_sys_chroot", "cap_sys_ptrace", "cap_sys_pacct", "cap_sys_admin", "cap_sys_boot", "cap_sys_nice", "cap_sys_resource", "cap_sys_time", "cap_sys_tty_config", "cap_mknod", "cap_lease", "cap_audit_write", "cap_audit_control", "cap_setfcap", "cap_mac_override", "cap_mac_admin", "cap_syslog", "cap_wake_alarm", "cap_block_suspend", "cap_audit_read+ep"], "ansible_apparmor": {"status": "disabled"}, "ansible_virtualization_role": "guest", "ansible_virtualization_type": "kvm", "ansible_lsb": {}, "ansible_dns": {"search": ["asia-east1-a.c.ansible-tutorial-280014.internal", "c.ansible-tutorial-280014.internal", "google.internal"], "nameservers": ["169.254.169.254"]}, "ansible_env": {"LS_COLORS": "rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.m4a=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.oga=01;36:*.opus=01;36:*.spx=01;36:*.xspf=01;36:", "LANG": "en_US.UTF-8", "SUDO_GID": "1001", "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-fxicwtjgrtlenhsagypiohflnwrmifsm ; /usr/libexec/platform-python /home/training/.ansible/tmp/ansible-tmp-1593854326.4446726-21321-231230637211881/AnsiballZ_setup.py", "USER": "root", "PWD": "/home/training", "HOME": "/root", "SUDO_USER": "training", "SUDO_UID": "1000", "MAIL": "/var/mail/root", "SHELL": "/bin/bash", "TERM": "xterm", "SHLVL": "1", "LOGNAME": "root", "PATH": "/sbin:/bin:/usr/sbin:/usr/bin", "_": "/usr/libexec/platform-python"}, "ansible_fibre_channel_wwn": [], "ansible_pkg_mgr": "dnf", "ansible_selinux_python_present": true, "ansible_selinux": {"status": "enabled", "policyvers": 31, "config_mode": "enforcing", "mode": "enforcing", "type": "targeted"}, "ansible_date_time": {"year": "2020", "month": "07", "weekday": "Saturday", "weekday_number": "6", "weeknumber": "26", "day": "04", "hour": "09", "minute": "18", "second": "47", "epoch": "1593854327", "date": "2020-07-04", "time": "09:18:47", "iso8601_micro": "2020-07-04T09:18:47.577137Z", "iso8601": "2020-07-04T09:18:47Z", "iso8601_basic": "20200704T091847577024", "iso8601_basic_short": "20200704T091847", "tz": "UTC", "tz_offset": "+0000"}, "ansible_processor": ["0", "GenuineIntel", "Intel(R) Xeon(R) CPU @ 2.20GHz"], "ansible_processor_count": 1, "ansible_processor_cores": 1, "ansible_processor_threads_per_core": 1, "ansible_processor_vcpus": 1, "ansible_memtotal_mb": 3525, "ansible_memfree_mb": 1379, "ansible_swaptotal_mb": 0, "ansible_swapfree_mb": 0, "ansible_memory_mb": {"real": {"total": 3525, "used": 2146, "free": 1379}, "nocache": {"free": 3079, "used": 446}, "swap": {"total": 0, "free": 0, "used": 0, "cached": 0}}, "ansible_bios_date": "01/01/2011", "ansible_bios_version": "Google", "ansible_form_factor": "Other", "ansible_product_name": "Google Compute Engine", "ansible_product_serial": "GoogleCloud-0C7895B05913CB47EC59FDCB44364BD1", "ansible_product_uuid": "0c7895b0-5913-cb47-ec59-fdcb44364bd1", "ansible_product_version": "NA", "ansible_system_vendor": "Google", "ansible_devices": {"sda": {"virtual": 1, "links": {"ids": ["google-persistent-disk-0", "scsi-0Google_PersistentDisk_persistent-disk-0"], "uuids": [], "labels": [], "masters": []}, "vendor": "Google", "model": "PersistentDisk", "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {"sda2": {"links": {"ids": ["google-persistent-disk-0-part2", "scsi-0Google_PersistentDisk_persistent-disk-0-part2"], "uuids": ["eee46912-69f0-437b-87cf-511f36d4c4d3"], "labels": ["root"], "masters": []}, "start": "411648", "sectors": "41529344", "sectorsize": 512, "size": "19.80 GB", "uuid": "eee46912-69f0-437b-87cf-511f36d4c4d3", "holders": []}, "sda1": {"links": {"ids": ["google-persistent-disk-0-part1", "scsi-0Google_PersistentDisk_persistent-disk-0-part1"], "uuids": ["E8B3-A538"], "labels": [], "masters": []}, "start": "2048", "sectors": "409600", "sectorsize": 512, "size": "200.00 MB", "uuid": "E8B3-A538", "holders": []}}, "rotational": "1", "scheduler_mode": "none", "sectors": "41943040", "sectorsize": "512", "size": "20.00 GB", "host": "", "holders": []}}, "ansible_device_links": {"ids": {"sda1": ["google-persistent-disk-0-part1", "scsi-0Google_PersistentDisk_persistent-disk-0-part1"], "sda2": ["google-persistent-disk-0-part2", "scsi-0Google_PersistentDisk_persistent-disk-0-part2"], "sda": ["google-persistent-disk-0", "scsi-0Google_PersistentDisk_persistent-disk-0"]}, "uuids": {"sda1": ["E8B3-A538"], "sda2": ["eee46912-69f0-437b-87cf-511f36d4c4d3"]}, "labels": {"sda2": ["root"]}, "masters": {}}, "ansible_uptime_seconds": 32456, "ansible_mounts": [{"mount": "/", "device": "/dev/sda2", "fstype": "xfs", "options": "rw,seclabel,relatime,attr2,inode64,noquota", "size_total": 21252538368, "size_available": 17471229952, "block_size": 4096, "block_total": 5188608, "block_available": 4265437, "block_used": 923171, "inode_total": 10382336, "inode_available": 10276089, "inode_used": 106247, "uuid": "eee46912-69f0-437b-87cf-511f36d4c4d3"}, {"mount": "/boot/efi", "device": "/dev/sda1", "fstype": "vfat", "options": "rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=ascii,shortname=winnt,errors=remount-ro", "size_total": 209489920, "size_available": 202424320, "block_size": 4096, "block_total": 51145, "block_available": 49420, "block_used": 1725, "inode_total": 0, "inode_available": 0, "inode_used": 0, "uuid": "E8B3-A538"}], "ansible_interfaces": ["lo", "eth0"], "ansible_eth0": {"device": "eth0", "macaddress": "42:01:0a:f0:00:08", "mtu": 1460, "active": true, "module": "virtio_net", "type": "ether", "pciid": "virtio1", "speed": -1, "promisc": false, "ipv4": {"address": "10.240.0.8", "broadcast": "global", "netmask": "255.255.255.255", "network": "10.240.0.8"}, "ipv6": [{"address": "fe80::a401:2273:c905:bafb", "prefix": "64", "scope": "link"}], "features": {"rx_checksumming": "on [fixed]", "tx_checksumming": "on", "tx_checksum_ipv4": "off [fixed]", "tx_checksum_ip_generic": "on", "tx_checksum_ipv6": "off [fixed]", "tx_checksum_fcoe_crc": "off [fixed]", "tx_checksum_sctp": "off [fixed]", "scatter_gather": "on", "tx_scatter_gather": "on", "tx_scatter_gather_fraglist": "off [fixed]", "tcp_segmentation_offload": "on", "tx_tcp_segmentation": "on", "tx_tcp_ecn_segmentation": "off [fixed]", "tx_tcp_mangleid_segmentation": "off", "tx_tcp6_segmentation": "on", "generic_segmentation_offload": "on", "generic_receive_offload": "on", "large_receive_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "tx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "receive_hashing": "off [fixed]", "highdma": "on [fixed]", "rx_vlan_filter": "off [fixed]", "vlan_challenged": "off [fixed]", "tx_lockless": "off [fixed]", "netns_local": "off [fixed]", "tx_gso_robust": "on [fixed]", "tx_fcoe_segmentation": "off [fixed]", "tx_gre_segmentation": "off [fixed]", "tx_gre_csum_segmentation": "off [fixed]", "tx_ipxip4_segmentation": "off [fixed]", "tx_ipxip6_segmentation": "off [fixed]", "tx_udp_tnl_segmentation": "off [fixed]", "tx_udp_tnl_csum_segmentation": "off [fixed]", "tx_gso_partial": "off [fixed]", "tx_sctp_segmentation": "off [fixed]", "tx_esp_segmentation": "off [fixed]", "tx_udp_segmentation": "off [fixed]", "tls_hw_rx_offload": "off [fixed]", "fcoe_mtu": "off [fixed]", "tx_nocache_copy": "off", "loopback": "off [fixed]", "rx_fcs": "off [fixed]", "rx_all": "off [fixed]", "tx_vlan_stag_hw_insert": "off [fixed]", "rx_vlan_stag_hw_parse": "off [fixed]", "rx_vlan_stag_filter": "off [fixed]", "l2_fwd_offload": "off [fixed]", "hw_tc_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "esp_tx_csum_hw_offload": "off [fixed]", "rx_udp_tunnel_port_offload": "off [fixed]", "tls_hw_tx_offload": "off [fixed]", "rx_gro_hw": "off [fixed]", "tls_hw_record": "off [fixed]"}, "timestamping": ["tx_software", "rx_software", "software"], "hw_timestamp_filters": []}, "ansible_lo": {"device": "lo", "mtu": 65536, "active": true, "type": "loopback", "promisc": false, "ipv4": {"address": "127.0.0.1", "broadcast": "host", "netmask": "255.0.0.0", "network": "127.0.0.0"}, "ipv6": [{"address": "::1", "prefix": "128", "scope": "host"}], "features": {"rx_checksumming": "on [fixed]", "tx_checksumming": "on", "tx_checksum_ipv4": "off [fixed]", "tx_checksum_ip_generic": "on [fixed]", "tx_checksum_ipv6": "off [fixed]", "tx_checksum_fcoe_crc": "off [fixed]", "tx_checksum_sctp": "on [fixed]", "scatter_gather": "on", "tx_scatter_gather": "on [fixed]", "tx_scatter_gather_fraglist": "on [fixed]", "tcp_segmentation_offload": "on", "tx_tcp_segmentation": "on", "tx_tcp_ecn_segmentation": "on", "tx_tcp_mangleid_segmentation": "on", "tx_tcp6_segmentation": "on", "generic_segmentation_offload": "on", "generic_receive_offload": "on", "large_receive_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "tx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "receive_hashing": "off [fixed]", "highdma": "on [fixed]", "rx_vlan_filter": "off [fixed]", "vlan_challenged": "on [fixed]", "tx_lockless": "on [fixed]", "netns_local": "on [fixed]", "tx_gso_robust": "off [fixed]", "tx_fcoe_segmentation": "off [fixed]", "tx_gre_segmentation": "off [fixed]", "tx_gre_csum_segmentation": "off [fixed]", "tx_ipxip4_segmentation": "off [fixed]", "tx_ipxip6_segmentation": "off [fixed]", "tx_udp_tnl_segmentation": "off [fixed]", "tx_udp_tnl_csum_segmentation": "off [fixed]", "tx_gso_partial": "off [fixed]", "tx_sctp_segmentation": "on", "tx_esp_segmentation": "off [fixed]", "tx_udp_segmentation": "off [fixed]", "tls_hw_rx_offload": "off [fixed]", "fcoe_mtu": "off [fixed]", "tx_nocache_copy": "off [fixed]", "loopback": "on [fixed]", "rx_fcs": "off [fixed]", "rx_all": "off [fixed]", "tx_vlan_stag_hw_insert": "off [fixed]", "rx_vlan_stag_hw_parse": "off [fixed]", "rx_vlan_stag_filter": "off [fixed]", "l2_fwd_offload": "off [fixed]", "hw_tc_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "esp_tx_csum_hw_offload": "off [fixed]", "rx_udp_tunnel_port_offload": "off [fixed]", "tls_hw_tx_offload": "off [fixed]", "rx_gro_hw": "off [fixed]", "tls_hw_record": "off [fixed]"}, "timestamping": ["tx_software", "rx_software", "software"], "hw_timestamp_filters": []}, "ansible_default_ipv4": {"gateway": "10.240.0.1", "interface": "eth0", "address": "10.240.0.8", "broadcast": "global", "netmask": "255.255.255.255", "network": "10.240.0.8", "macaddress": "42:01:0a:f0:00:08", "mtu": 1460, "type": "ether", "alias": "eth0"}, "ansible_default_ipv6": {}, "ansible_all_ipv4_addresses": ["10.240.0.8"], "ansible_all_ipv6_addresses": ["fe80::a401:2273:c905:bafb"], "ansible_service_mgr": "systemd", "ansible_python": {"version": {"major": 3, "minor": 6, "micro": 8, "releaselevel": "final", "serial": 0}, "version_info": [3, 6, 8, "final", 0], "executable": "/usr/libexec/platform-python", "has_sslcontext": true, "type": "cpython"}, "ansible_local": {}, "ansible_cmdline": {"BOOT_IMAGE": "(hd0,gpt2)/boot/vmlinuz-4.18.0-193.6.3.el8_2.x86_64", "root": "UUID=eee46912-69f0-437b-87cf-511f36d4c4d3", "ro": true, "net.ifnames": "0", "biosdevname": "0", "scsi_mod.use_blk_mq": "Y", "crashkernel": "auto", "console": "ttyS0,38400n8"}, "ansible_proc_cmdline": {"BOOT_IMAGE": "(hd0,gpt2)/boot/vmlinuz-4.18.0-193.6.3.el8_2.x86_64", "root": "UUID=eee46912-69f0-437b-87cf-511f36d4c4d3", "ro": true, "net.ifnames": "0", "biosdevname": "0", "scsi_mod.use_blk_mq": "Y", "crashkernel": "auto", "console": "ttyS0,38400n8"}, "ansible_hostnqn": "", "gather_subset": ["all"], "module_setup": true}, "invocation": {"module_args": {"gather_subset": ["all"], "gather_timeout": 10, "filter": "*", "fact_path": "/etc/ansible/facts.d"}}}\r\n', b'Shared connection to 10.240.0.8 closed.\r\n')
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb 10.240.0.8 '/bin/sh -c '"'"'rm -f -r /home/training/.ansible/tmp/ansible-tmp-1593854326.4446726-21321-231230637211881/ > /dev/null 2>&1 && sleep 0'"'"''
+<10.240.0.7> (0, b'', b'')
+ok: [10.240.0.7]
+<10.240.0.9> (0, b'\r\n{"ansible_facts": {"ansible_system": "Linux", "ansible_kernel": "4.18.0-193.6.3.el8_2.x86_64", "ansible_kernel_version": "#1 SMP Wed Jun 10 11:09:32 UTC 2020", "ansible_machine": "x86_64", "ansible_python_version": "3.6.8", "ansible_fqdn": "user1-node2.asia-east1-a.c.ansible-tutorial-280014.internal", "ansible_hostname": "user1-node2", "ansible_nodename": "user1-node2", "ansible_domain": "asia-east1-a.c.ansible-tutorial-280014.internal", "ansible_userspace_bits": "64", "ansible_architecture": "x86_64", "ansible_userspace_architecture": "x86_64", "ansible_machine_id": "8d8e33672d8e48fac9cbc6f93dfb69cc", "ansible_iscsi_iqn": "", "ansible_distribution": "CentOS", "ansible_distribution_release": "Core", "ansible_distribution_version": "8.2", "ansible_distribution_major_version": "8", "ansible_distribution_file_path": "/etc/redhat-release", "ansible_distribution_file_variety": "RedHat", "ansible_distribution_file_parsed": true, "ansible_os_family": "RedHat", "ansible_user_id": "root", "ansible_user_uid": 0, "ansible_user_gid": 0, "ansible_user_gecos": "root", "ansible_user_dir": "/root", "ansible_user_shell": "/bin/bash", "ansible_real_user_id": 0, "ansible_effective_user_id": 0, "ansible_real_group_id": 0, "ansible_effective_group_id": 0, "ansible_system_capabilities_enforced": "True", "ansible_system_capabilities": ["cap_chown", "cap_dac_override", "cap_dac_read_search", "cap_fowner", "cap_fsetid", "cap_kill", "cap_setgid", "cap_setuid", "cap_setpcap", "cap_linux_immutable", "cap_net_bind_service", "cap_net_broadcast", "cap_net_admin", "cap_net_raw", "cap_ipc_lock", "cap_ipc_owner", "cap_sys_module", "cap_sys_rawio", "cap_sys_chroot", "cap_sys_ptrace", "cap_sys_pacct", "cap_sys_admin", "cap_sys_boot", "cap_sys_nice", "cap_sys_resource", "cap_sys_time", "cap_sys_tty_config", "cap_mknod", "cap_lease", "cap_audit_write", "cap_audit_control", "cap_setfcap", "cap_mac_override", "cap_mac_admin", "cap_syslog", "cap_wake_alarm", "cap_block_suspend", "cap_audit_read+ep"], "ansible_fibre_channel_wwn": [], "ansible_apparmor": {"status": "disabled"}, "ansible_date_time": {"year": "2020", "month": "07", "weekday": "Saturday", "weekday_number": "6", "weeknumber": "26", "day": "04", "hour": "09", "minute": "18", "second": "47", "epoch": "1593854327", "date": "2020-07-04", "time": "09:18:47", "iso8601_micro": "2020-07-04T09:18:47.613943Z", "iso8601": "2020-07-04T09:18:47Z", "iso8601_basic": "20200704T091847613757", "iso8601_basic_short": "20200704T091847", "tz": "UTC", "tz_offset": "+0000"}, "ansible_hostnqn": "", "ansible_is_chroot": false, "ansible_env": {"LS_COLORS": "rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.m4a=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.oga=01;36:*.opus=01;36:*.spx=01;36:*.xspf=01;36:", "LANG": "en_US.UTF-8", "SUDO_GID": "1001", "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-sdfcmjoufzjafpcyibcahbwefbdakbyr ; /usr/libexec/platform-python /home/training/.ansible/tmp/ansible-tmp-1593854326.4483044-21322-5687188091404/AnsiballZ_setup.py", "USER": "root", "PWD": "/home/training", "HOME": "/root", "SUDO_USER": "training", "SUDO_UID": "1000", "MAIL": "/var/mail/root", "SHELL": "/bin/bash", "TERM": "xterm", "SHLVL": "1", "LOGNAME": "root", "PATH": "/sbin:/bin:/usr/sbin:/usr/bin", "_": "/usr/libexec/platform-python"}, "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQCgNcf/5QRf9otBloMeHwD6eil04PB6rygZnAOPtpfNOIZQuQLy3g8qK6HdtyDfiHYwhaWjvIhu7AJBGMkZITH0MCa9hDW1hx1OnPDbG21XCHCQjuckXvQ8Wb5EZ6zGWfADTn8hSnVeJoUHKwO6245KMeLrS+xlSlEpETxMi6FwMuqORYXZQIdAQbFhwmBNQoFuMopxJgrhwH3Z6Nx7IKmV9u1kMF2pN5NcjBugPPYpmgheb9dt1eU1UVs8bDpveARXLpa/Q1MCWW8ldU/gC5UUqgzIfKVhsKiTYaAiUe3K2rxGK2NYk11koT+0MobsRCO8s+D8ENVad6V2gUDaJRaIDH3O8Tqkb/iX/dCbMC/nv9vdKA1Lwkg5RY3gHGswkVdo4t85nKlI+uAsS6SlCIuKQgC87aWYQnJf5W1x09xqdxIXHK7t7OS20GV1wjgybA3fonjEJN9P3fCyASBX+MI9bNdh1x5SzEhP+Ec5dmSBANE9ij5bLMPbs2HfCi4kJE8=", "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBH825JVELE9IbtoM7bPlJF15kbTeE57ys2sW5dNhvdfBYeLdFpfvpJbFY1RtfMrjWMb84uh656T/OVHJrM1Bteg=", "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIJ9jaOvKO0uj/dH/EiNbcqx/A1PaxoMDPBQ1EqAIBOBe", "ansible_dns": {"search": ["asia-east1-a.c.ansible-tutorial-280014.internal", "c.ansible-tutorial-280014.internal", "google.internal"], "nameservers": ["169.254.169.254"]}, "ansible_virtualization_role": "guest", "ansible_virtualization_type": "kvm", "ansible_cmdline": {"BOOT_IMAGE": "(hd0,gpt2)/boot/vmlinuz-4.18.0-193.6.3.el8_2.x86_64", "root": "UUID=eee46912-69f0-437b-87cf-511f36d4c4d3", "ro": true, "net.ifnames": "0", "biosdevname": "0", "scsi_mod.use_blk_mq": "Y", "crashkernel": "auto", "console": "ttyS0,38400n8"}, "ansible_proc_cmdline": {"BOOT_IMAGE": "(hd0,gpt2)/boot/vmlinuz-4.18.0-193.6.3.el8_2.x86_64", "root": "UUID=eee46912-69f0-437b-87cf-511f36d4c4d3", "ro": true, "net.ifnames": "0", "biosdevname": "0", "scsi_mod.use_blk_mq": "Y", "crashkernel": "auto", "console": "ttyS0,38400n8"}, "ansible_selinux_python_present": true, "ansible_selinux": {"status": "enabled", "policyvers": 31, "config_mode": "enforcing", "mode": "enforcing", "type": "targeted"}, "ansible_interfaces": ["eth0", "lo"], "ansible_eth0": {"device": "eth0", "macaddress": "42:01:0a:f0:00:09", "mtu": 1460, "active": true, "module": "virtio_net", "type": "ether", "pciid": "virtio1", "speed": -1, "promisc": false, "ipv4": {"address": "10.240.0.9", "broadcast": "global", "netmask": "255.255.255.255", "network": "10.240.0.9"}, "ipv6": [{"address": "fe80::c52d:dfde:fd5a:aada", "prefix": "64", "scope": "link"}], "features": {"rx_checksumming": "on [fixed]", "tx_checksumming": "on", "tx_checksum_ipv4": "off [fixed]", "tx_checksum_ip_generic": "on", "tx_checksum_ipv6": "off [fixed]", "tx_checksum_fcoe_crc": "off [fixed]", "tx_checksum_sctp": "off [fixed]", "scatter_gather": "on", "tx_scatter_gather": "on", "tx_scatter_gather_fraglist": "off [fixed]", "tcp_segmentation_offload": "on", "tx_tcp_segmentation": "on", "tx_tcp_ecn_segmentation": "off [fixed]", "tx_tcp_mangleid_segmentation": "off", "tx_tcp6_segmentation": "on", "generic_segmentation_offload": "on", "generic_receive_offload": "on", "large_receive_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "tx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "receive_hashing": "off [fixed]", "highdma": "on [fixed]", "rx_vlan_filter": "off [fixed]", "vlan_challenged": "off [fixed]", "tx_lockless": "off [fixed]", "netns_local": "off [fixed]", "tx_gso_robust": "on [fixed]", "tx_fcoe_segmentation": "off [fixed]", "tx_gre_segmentation": "off [fixed]", "tx_gre_csum_segmentation": "off [fixed]", "tx_ipxip4_segmentation": "off [fixed]", "tx_ipxip6_segmentation": "off [fixed]", "tx_udp_tnl_segmentation": "off [fixed]", "tx_udp_tnl_csum_segmentation": "off [fixed]", "tx_gso_partial": "off [fixed]", "tx_sctp_segmentation": "off [fixed]", "tx_esp_segmentation": "off [fixed]", "tx_udp_segmentation": "off [fixed]", "tls_hw_rx_offload": "off [fixed]", "fcoe_mtu": "off [fixed]", "tx_nocache_copy": "off", "loopback": "off [fixed]", "rx_fcs": "off [fixed]", "rx_all": "off [fixed]", "tx_vlan_stag_hw_insert": "off [fixed]", "rx_vlan_stag_hw_parse": "off [fixed]", "rx_vlan_stag_filter": "off [fixed]", "l2_fwd_offload": "off [fixed]", "hw_tc_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "esp_tx_csum_hw_offload": "off [fixed]", "rx_udp_tunnel_port_offload": "off [fixed]", "tls_hw_tx_offload": "off [fixed]", "rx_gro_hw": "off [fixed]", "tls_hw_record": "off [fixed]"}, "timestamping": ["tx_software", "rx_software", "software"], "hw_timestamp_filters": []}, "ansible_lo": {"device": "lo", "mtu": 65536, "active": true, "type": "loopback", "promisc": false, "ipv4": {"address": "127.0.0.1", "broadcast": "host", "netmask": "255.0.0.0", "network": "127.0.0.0"}, "ipv6": [{"address": "::1", "prefix": "128", "scope": "host"}], "features": {"rx_checksumming": "on [fixed]", "tx_checksumming": "on", "tx_checksum_ipv4": "off [fixed]", "tx_checksum_ip_generic": "on [fixed]", "tx_checksum_ipv6": "off [fixed]", "tx_checksum_fcoe_crc": "off [fixed]", "tx_checksum_sctp": "on [fixed]", "scatter_gather": "on", "tx_scatter_gather": "on [fixed]", "tx_scatter_gather_fraglist": "on [fixed]", "tcp_segmentation_offload": "on", "tx_tcp_segmentation": "on", "tx_tcp_ecn_segmentation": "on", "tx_tcp_mangleid_segmentation": "on", "tx_tcp6_segmentation": "on", "generic_segmentation_offload": "on", "generic_receive_offload": "on", "large_receive_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "tx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "receive_hashing": "off [fixed]", "highdma": "on [fixed]", "rx_vlan_filter": "off [fixed]", "vlan_challenged": "on [fixed]", "tx_lockless": "on [fixed]", "netns_local": "on [fixed]", "tx_gso_robust": "off [fixed]", "tx_fcoe_segmentation": "off [fixed]", "tx_gre_segmentation": "off [fixed]", "tx_gre_csum_segmentation": "off [fixed]", "tx_ipxip4_segmentation": "off [fixed]", "tx_ipxip6_segmentation": "off [fixed]", "tx_udp_tnl_segmentation": "off [fixed]", "tx_udp_tnl_csum_segmentation": "off [fixed]", "tx_gso_partial": "off [fixed]", "tx_sctp_segmentation": "on", "tx_esp_segmentation": "off [fixed]", "tx_udp_segmentation": "off [fixed]", "tls_hw_rx_offload": "off [fixed]", "fcoe_mtu": "off [fixed]", "tx_nocache_copy": "off [fixed]", "loopback": "on [fixed]", "rx_fcs": "off [fixed]", "rx_all": "off [fixed]", "tx_vlan_stag_hw_insert": "off [fixed]", "rx_vlan_stag_hw_parse": "off [fixed]", "rx_vlan_stag_filter": "off [fixed]", "l2_fwd_offload": "off [fixed]", "hw_tc_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "esp_tx_csum_hw_offload": "off [fixed]", "rx_udp_tunnel_port_offload": "off [fixed]", "tls_hw_tx_offload": "off [fixed]", "rx_gro_hw": "off [fixed]", "tls_hw_record": "off [fixed]"}, "timestamping": ["tx_software", "rx_software", "software"], "hw_timestamp_filters": []}, "ansible_default_ipv4": {"gateway": "10.240.0.1", "interface": "eth0", "address": "10.240.0.9", "broadcast": "global", "netmask": "255.255.255.255", "network": "10.240.0.9", "macaddress": "42:01:0a:f0:00:09", "mtu": 1460, "type": "ether", "alias": "eth0"}, "ansible_default_ipv6": {}, "ansible_all_ipv4_addresses": ["10.240.0.9"], "ansible_all_ipv6_addresses": ["fe80::c52d:dfde:fd5a:aada"], "ansible_pkg_mgr": "dnf", "ansible_lsb": {}, "ansible_processor": ["0", "GenuineIntel", "Intel(R) Xeon(R) CPU @ 2.20GHz"], "ansible_processor_count": 1, "ansible_processor_cores": 1, "ansible_processor_threads_per_core": 1, "ansible_processor_vcpus": 1, "ansible_memtotal_mb": 3525, "ansible_memfree_mb": 1427, "ansible_swaptotal_mb": 0, "ansible_swapfree_mb": 0, "ansible_memory_mb": {"real": {"total": 3525, "used": 2098, "free": 1427}, "nocache": {"free": 3086, "used": 439}, "swap": {"total": 0, "free": 0, "used": 0, "cached": 0}}, "ansible_bios_date": "01/01/2011", "ansible_bios_version": "Google", "ansible_form_factor": "Other", "ansible_product_name": "Google Compute Engine", "ansible_product_serial": "GoogleCloud-34CD3B2A8BB145001E91CFD95D4ECBD7", "ansible_product_uuid": "34cd3b2a-8bb1-4500-1e91-cfd95d4ecbd7", "ansible_product_version": "NA", "ansible_system_vendor": "Google", "ansible_devices": {"sda": {"virtual": 1, "links": {"ids": ["google-persistent-disk-0", "scsi-0Google_PersistentDisk_persistent-disk-0"], "uuids": [], "labels": [], "masters": []}, "vendor": "Google", "model": "PersistentDisk", "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {"sda2": {"links": {"ids": ["google-persistent-disk-0-part2", "scsi-0Google_PersistentDisk_persistent-disk-0-part2"], "uuids": ["eee46912-69f0-437b-87cf-511f36d4c4d3"], "labels": ["root"], "masters": []}, "start": "411648", "sectors": "41529344", "sectorsize": 512, "size": "19.80 GB", "uuid": "eee46912-69f0-437b-87cf-511f36d4c4d3", "holders": []}, "sda1": {"links": {"ids": ["google-persistent-disk-0-part1", "scsi-0Google_PersistentDisk_persistent-disk-0-part1"], "uuids": ["E8B3-A538"], "labels": [], "masters": []}, "start": "2048", "sectors": "409600", "sectorsize": 512, "size": "200.00 MB", "uuid": "E8B3-A538", "holders": []}}, "rotational": "1", "scheduler_mode": "none", "sectors": "41943040", "sectorsize": "512", "size": "20.00 GB", "host": "", "holders": []}}, "ansible_device_links": {"ids": {"sda1": ["google-persistent-disk-0-part1", "scsi-0Google_PersistentDisk_persistent-disk-0-part1"], "sda2": ["google-persistent-disk-0-part2", "scsi-0Google_PersistentDisk_persistent-disk-0-part2"], "sda": ["google-persistent-disk-0", "scsi-0Google_PersistentDisk_persistent-disk-0"]}, "uuids": {"sda2": ["eee46912-69f0-437b-87cf-511f36d4c4d3"], "sda1": ["E8B3-A538"]}, "labels": {"sda2": ["root"]}, "masters": {}}, "ansible_uptime_seconds": 32415, "ansible_mounts": [{"mount": "/", "device": "/dev/sda2", "fstype": "xfs", "options": "rw,seclabel,relatime,attr2,inode64,noquota", "size_total": 21252538368, "size_available": 17513254912, "block_size": 4096, "block_total": 5188608, "block_available": 4275697, "block_used": 912911, "inode_total": 10382336, "inode_available": 10273458, "inode_used": 108878, "uuid": "eee46912-69f0-437b-87cf-511f36d4c4d3"}, {"mount": "/boot/efi", "device": "/dev/sda1", "fstype": "vfat", "options": "rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=ascii,shortname=winnt,errors=remount-ro", "size_total": 209489920, "size_available": 202424320, "block_size": 4096, "block_total": 51145, "block_available": 49420, "block_used": 1725, "inode_total": 0, "inode_available": 0, "inode_used": 0, "uuid": "E8B3-A538"}], "ansible_local": {}, "ansible_fips": false, "ansible_python": {"version": {"major": 3, "minor": 6, "micro": 8, "releaselevel": "final", "serial": 0}, "version_info": [3, 6, 8, "final", 0], "executable": "/usr/libexec/platform-python", "has_sslcontext": true, "type": "cpython"}, "ansible_service_mgr": "systemd", "gather_subset": ["all"], "module_setup": true}, "invocation": {"module_args": {"gather_subset": ["all"], "gather_timeout": 10, "filter": "*", "fact_path": "/etc/ansible/facts.d"}}}\r\n', b'Shared connection to 10.240.0.9 closed.\r\n')
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 10.240.0.9 '/bin/sh -c '"'"'rm -f -r /home/training/.ansible/tmp/ansible-tmp-1593854326.4483044-21322-5687188091404/ > /dev/null 2>&1 && sleep 0'"'"''
+<10.240.0.8> (0, b'', b'')
+ok: [10.240.0.8]
+<10.240.0.9> (0, b'', b'')
+ok: [10.240.0.9]
+META: ran handlers
+
+TASK [Copy tar file] ******************************************************************************************************
+task path: /home/training/day1/rain-test/rain-transfer.yml:7
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca 10.240.0.7 '/bin/sh -c '"'"'echo ~training && sleep 0'"'"''
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb 10.240.0.8 '/bin/sh -c '"'"'echo ~training && sleep 0'"'"''
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 10.240.0.9 '/bin/sh -c '"'"'echo ~training && sleep 0'"'"''
+<10.240.0.7> (0, b'/home/training\n', b'')
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca 10.240.0.7 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/training/.ansible/tmp `"&& mkdir /home/training/.ansible/tmp/ansible-tmp-1593854328.0020375-21362-164087264115908 && echo ansible-tmp-1593854328.0020375-21362-164087264115908="` echo /home/training/.ansible/tmp/ansible-tmp-1593854328.0020375-21362-164087264115908 `" ) && sleep 0'"'"''
+<10.240.0.8> (0, b'/home/training\n', b'')
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb 10.240.0.8 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/training/.ansible/tmp `"&& mkdir /home/training/.ansible/tmp/ansible-tmp-1593854328.0194454-21364-122477275395609 && echo ansible-tmp-1593854328.0194454-21364-122477275395609="` echo /home/training/.ansible/tmp/ansible-tmp-1593854328.0194454-21364-122477275395609 `" ) && sleep 0'"'"''
+<10.240.0.9> (0, b'/home/training\n', b'')
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 10.240.0.9 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/training/.ansible/tmp `"&& mkdir /home/training/.ansible/tmp/ansible-tmp-1593854328.02913-21365-122827066008696 && echo ansible-tmp-1593854328.02913-21365-122827066008696="` echo /home/training/.ansible/tmp/ansible-tmp-1593854328.02913-21365-122827066008696 `" ) && sleep 0'"'"''
+<10.240.0.7> (0, b'ansible-tmp-1593854328.0020375-21362-164087264115908=/home/training/.ansible/tmp/ansible-tmp-1593854328.0020375-21362-164087264115908\n', b'')
+<10.240.0.8> (0, b'ansible-tmp-1593854328.0194454-21364-122477275395609=/home/training/.ansible/tmp/ansible-tmp-1593854328.0194454-21364-122477275395609\n', b'')
+<10.240.0.9> (0, b'ansible-tmp-1593854328.02913-21365-122827066008696=/home/training/.ansible/tmp/ansible-tmp-1593854328.02913-21365-122827066008696\n', b'')
+Using module file /usr/local/lib/python3.6/site-packages/ansible/modules/files/stat.py
+<10.240.0.7> PUT /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmp5pupvpyu TO /home/training/.ansible/tmp/ansible-tmp-1593854328.0020375-21362-164087264115908/AnsiballZ_stat.py
+<10.240.0.7> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca '[10.240.0.7]'
+Using module file /usr/local/lib/python3.6/site-packages/ansible/modules/files/stat.py
+<10.240.0.9> PUT /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmpatj5kwti TO /home/training/.ansible/tmp/ansible-tmp-1593854328.02913-21365-122827066008696/AnsiballZ_stat.py
+<10.240.0.9> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 '[10.240.0.9]'
+Using module file /usr/local/lib/python3.6/site-packages/ansible/modules/files/stat.py
+<10.240.0.8> PUT /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmp6p_0ah3x TO /home/training/.ansible/tmp/ansible-tmp-1593854328.0194454-21364-122477275395609/AnsiballZ_stat.py
+<10.240.0.8> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb '[10.240.0.8]'
+<10.240.0.9> (0, b'sftp> put /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmpatj5kwti /home/training/.ansible/tmp/ansible-tmp-1593854328.02913-21365-122827066008696/AnsiballZ_stat.py\n', b'')
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 10.240.0.9 '/bin/sh -c '"'"'chmod u+x /home/training/.ansible/tmp/ansible-tmp-1593854328.02913-21365-122827066008696/ /home/training/.ansible/tmp/ansible-tmp-1593854328.02913-21365-122827066008696/AnsiballZ_stat.py && sleep 0'"'"''
+<10.240.0.8> (0, b'sftp> put /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmp6p_0ah3x /home/training/.ansible/tmp/ansible-tmp-1593854328.0194454-21364-122477275395609/AnsiballZ_stat.py\n', b'')
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb 10.240.0.8 '/bin/sh -c '"'"'chmod u+x /home/training/.ansible/tmp/ansible-tmp-1593854328.0194454-21364-122477275395609/ /home/training/.ansible/tmp/ansible-tmp-1593854328.0194454-21364-122477275395609/AnsiballZ_stat.py && sleep 0'"'"''
+<10.240.0.7> (0, b'sftp> put /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmp5pupvpyu /home/training/.ansible/tmp/ansible-tmp-1593854328.0020375-21362-164087264115908/AnsiballZ_stat.py\n', b'')
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca 10.240.0.7 '/bin/sh -c '"'"'chmod u+x /home/training/.ansible/tmp/ansible-tmp-1593854328.0020375-21362-164087264115908/ /home/training/.ansible/tmp/ansible-tmp-1593854328.0020375-21362-164087264115908/AnsiballZ_stat.py && sleep 0'"'"''
+<10.240.0.9> (0, b'', b'')
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 -tt 10.240.0.9 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-tenvpfxnztqxjgtzkvanyiumjykhmamf ; /usr/libexec/platform-python /home/training/.ansible/tmp/ansible-tmp-1593854328.02913-21365-122827066008696/AnsiballZ_stat.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<10.240.0.8> (0, b'', b'')
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb -tt 10.240.0.8 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-btmwhvnmotuzcherluymcfjlebpkouis ; /usr/libexec/platform-python /home/training/.ansible/tmp/ansible-tmp-1593854328.0194454-21364-122477275395609/AnsiballZ_stat.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<10.240.0.7> (0, b'', b'')
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca -tt 10.240.0.7 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-sdihhyuagheypzbljamhfugnppwrgnwn ; /usr/libexec/platform-python /home/training/.ansible/tmp/ansible-tmp-1593854328.0020375-21362-164087264115908/AnsiballZ_stat.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+Escalation succeeded
+Escalation succeeded
+Escalation succeeded
+<10.240.0.7> (0, b'\r\n{"changed": false, "stat": {"exists": true, "path": "/home/training/rain-test/sample-extract.tar", "mode": "0644", "isdir": false, "ischr": false, "isblk": false, "isreg": true, "isfifo": false, "islnk": false, "issock": false, "uid": 0, "gid": 0, "size": 10240, "inode": 34121549, "dev": 2050, "nlink": 1, "atime": 1593853739.2833884, "mtime": 1593853737.262389, "ctime": 1593853737.8833888, "wusr": true, "rusr": true, "xusr": false, "wgrp": false, "rgrp": true, "xgrp": false, "woth": false, "roth": true, "xoth": false, "isuid": false, "isgid": false, "blocks": 24, "block_size": 4096, "device_type": 0, "readable": true, "writeable": true, "executable": false, "pw_name": "root", "gr_name": "root", "checksum": "122dcb9d57bb71b956262dc4092eb353fd73577a", "mimetype": "application/x-tar", "charset": "binary", "version": "3264841121", "attributes": [], "attr_flags": ""}, "invocation": {"module_args": {"path": "/home/training/rain-test/sample-extract.tar", "follow": false, "get_checksum": true, "checksum_algorithm": "sha1", "get_md5": false, "get_mime": true, "get_attributes": true}}}\r\n', b'Shared connection to 10.240.0.7 closed.\r\n')
+<10.240.0.8> (0, b'\r\n{"changed": false, "stat": {"exists": true, "path": "/home/training/rain-test/sample-extract.tar", "mode": "0644", "isdir": false, "ischr": false, "isblk": false, "isreg": true, "isfifo": false, "islnk": false, "issock": false, "uid": 0, "gid": 0, "size": 10240, "inode": 52364837, "dev": 2050, "nlink": 1, "atime": 1593853739.3132834, "mtime": 1593853737.289282, "ctime": 1593853737.8942826, "wusr": true, "rusr": true, "xusr": false, "wgrp": false, "rgrp": true, "xgrp": false, "woth": false, "roth": true, "xoth": false, "isuid": false, "isgid": false, "blocks": 24, "block_size": 4096, "device_type": 0, "readable": true, "writeable": true, "executable": false, "pw_name": "root", "gr_name": "root", "checksum": "122dcb9d57bb71b956262dc4092eb353fd73577a", "mimetype": "application/x-tar", "charset": "binary", "version": "549296971", "attributes": [], "attr_flags": ""}, "invocation": {"module_args": {"path": "/home/training/rain-test/sample-extract.tar", "follow": false, "get_checksum": true, "checksum_algorithm": "sha1", "get_md5": false, "get_mime": true, "get_attributes": true}}}\r\n', b'Shared connection to 10.240.0.8 closed.\r\n')
+<10.240.0.9> (0, b'\r\n{"changed": false, "stat": {"exists": true, "path": "/home/training/rain-test/sample-extract.tar", "mode": "0644", "isdir": false, "ischr": false, "isblk": false, "isreg": true, "isfifo": false, "islnk": false, "issock": false, "uid": 0, "gid": 0, "size": 10240, "inode": 691098, "dev": 2050, "nlink": 1, "atime": 1593853739.2958753, "mtime": 1593853737.2638755, "ctime": 1593853737.8878756, "wusr": true, "rusr": true, "xusr": false, "wgrp": false, "rgrp": true, "xgrp": false, "woth": false, "roth": true, "xoth": false, "isuid": false, "isgid": false, "blocks": 24, "block_size": 4096, "device_type": 0, "readable": true, "writeable": true, "executable": false, "pw_name": "root", "gr_name": "root", "checksum": "122dcb9d57bb71b956262dc4092eb353fd73577a", "mimetype": "application/x-tar", "charset": "binary", "version": "325646372", "attributes": [], "attr_flags": ""}, "invocation": {"module_args": {"path": "/home/training/rain-test/sample-extract.tar", "follow": false, "get_checksum": true, "checksum_algorithm": "sha1", "get_md5": false, "get_mime": true, "get_attributes": true}}}\r\n', b'Shared connection to 10.240.0.9 closed.\r\n')
+Using module file /usr/local/lib/python3.6/site-packages/ansible/modules/files/file.py
+<10.240.0.7> PUT /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmpygv5l18m TO /home/training/.ansible/tmp/ansible-tmp-1593854328.0020375-21362-164087264115908/AnsiballZ_file.py
+<10.240.0.7> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca '[10.240.0.7]'
+Using module file /usr/local/lib/python3.6/site-packages/ansible/modules/files/file.py
+<10.240.0.8> PUT /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmp3rvnhfz9 TO /home/training/.ansible/tmp/ansible-tmp-1593854328.0194454-21364-122477275395609/AnsiballZ_file.py
+<10.240.0.8> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb '[10.240.0.8]'
+Using module file /usr/local/lib/python3.6/site-packages/ansible/modules/files/file.py
+<10.240.0.9> PUT /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmp0p81yur8 TO /home/training/.ansible/tmp/ansible-tmp-1593854328.02913-21365-122827066008696/AnsiballZ_file.py
+<10.240.0.9> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 '[10.240.0.9]'
+<10.240.0.8> (0, b'sftp> put /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmp3rvnhfz9 /home/training/.ansible/tmp/ansible-tmp-1593854328.0194454-21364-122477275395609/AnsiballZ_file.py\n', b'')
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb 10.240.0.8 '/bin/sh -c '"'"'chmod u+x /home/training/.ansible/tmp/ansible-tmp-1593854328.0194454-21364-122477275395609/ /home/training/.ansible/tmp/ansible-tmp-1593854328.0194454-21364-122477275395609/AnsiballZ_file.py && sleep 0'"'"''
+<10.240.0.7> (0, b'sftp> put /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmpygv5l18m /home/training/.ansible/tmp/ansible-tmp-1593854328.0020375-21362-164087264115908/AnsiballZ_file.py\n', b'')
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca 10.240.0.7 '/bin/sh -c '"'"'chmod u+x /home/training/.ansible/tmp/ansible-tmp-1593854328.0020375-21362-164087264115908/ /home/training/.ansible/tmp/ansible-tmp-1593854328.0020375-21362-164087264115908/AnsiballZ_file.py && sleep 0'"'"''
+<10.240.0.9> (0, b'sftp> put /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmp0p81yur8 /home/training/.ansible/tmp/ansible-tmp-1593854328.02913-21365-122827066008696/AnsiballZ_file.py\n', b'')
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 10.240.0.9 '/bin/sh -c '"'"'chmod u+x /home/training/.ansible/tmp/ansible-tmp-1593854328.02913-21365-122827066008696/ /home/training/.ansible/tmp/ansible-tmp-1593854328.02913-21365-122827066008696/AnsiballZ_file.py && sleep 0'"'"''
+<10.240.0.7> (0, b'', b'')
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca -tt 10.240.0.7 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-pqyneutiaiydmdahnfiztikmyszjrbqx ; /usr/libexec/platform-python /home/training/.ansible/tmp/ansible-tmp-1593854328.0020375-21362-164087264115908/AnsiballZ_file.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<10.240.0.8> (0, b'', b'')
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb -tt 10.240.0.8 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-gdpjsfkgpobzlhukldxfntqizzlpumin ; /usr/libexec/platform-python /home/training/.ansible/tmp/ansible-tmp-1593854328.0194454-21364-122477275395609/AnsiballZ_file.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<10.240.0.9> (0, b'', b'')
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 -tt 10.240.0.9 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-ycrslppwdpmfrlfhiyjhzrpvbeenbtud ; /usr/libexec/platform-python /home/training/.ansible/tmp/ansible-tmp-1593854328.02913-21365-122827066008696/AnsiballZ_file.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+Escalation succeeded
+Escalation succeeded
+Escalation succeeded
+<10.240.0.7> (0, b'\r\n{"path": "/home/training/rain-test/sample-extract.tar", "changed": false, "diff": {"before": {"path": "/home/training/rain-test/sample-extract.tar"}, "after": {"path": "/home/training/rain-test/sample-extract.tar"}}, "uid": 0, "gid": 0, "owner": "root", "group": "root", "mode": "0644", "state": "file", "secontext": "unconfined_u:object_r:user_home_t:s0", "size": 10240, "invocation": {"module_args": {"owner": "root", "group": "root", "mode": "0644", "dest": "/home/training/rain-test/sample-extract.tar", "_original_basename": "sample-extract.tar", "recurse": false, "state": "file", "path": "/home/training/rain-test/sample-extract.tar", "force": false, "follow": true, "modification_time_format": "%Y%m%d%H%M.%S", "access_time_format": "%Y%m%d%H%M.%S", "_diff_peek": null, "src": null, "modification_time": null, "access_time": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null, "content": null, "backup": null, "remote_src": null, "regexp": null, "delimiter": null, "directory_mode": null, "unsafe_writes": null}}}\r\n', b'Shared connection to 10.240.0.7 closed.\r\n')
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca 10.240.0.7 '/bin/sh -c '"'"'rm -f -r /home/training/.ansible/tmp/ansible-tmp-1593854328.0020375-21362-164087264115908/ > /dev/null 2>&1 && sleep 0'"'"''
+<10.240.0.9> (0, b'\r\n{"path": "/home/training/rain-test/sample-extract.tar", "changed": false, "diff": {"before": {"path": "/home/training/rain-test/sample-extract.tar"}, "after": {"path": "/home/training/rain-test/sample-extract.tar"}}, "uid": 0, "gid": 0, "owner": "root", "group": "root", "mode": "0644", "state": "file", "secontext": "unconfined_u:object_r:user_home_t:s0", "size": 10240, "invocation": {"module_args": {"owner": "root", "group": "root", "mode": "0644", "dest": "/home/training/rain-test/sample-extract.tar", "_original_basename": "sample-extract.tar", "recurse": false, "state": "file", "path": "/home/training/rain-test/sample-extract.tar", "force": false, "follow": true, "modification_time_format": "%Y%m%d%H%M.%S", "access_time_format": "%Y%m%d%H%M.%S", "_diff_peek": null, "src": null, "modification_time": null, "access_time": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null, "content": null, "backup": null, "remote_src": null, "regexp": null, "delimiter": null, "directory_mode": null, "unsafe_writes": null}}}\r\n', b'Shared connection to 10.240.0.9 closed.\r\n')
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 10.240.0.9 '/bin/sh -c '"'"'rm -f -r /home/training/.ansible/tmp/ansible-tmp-1593854328.02913-21365-122827066008696/ > /dev/null 2>&1 && sleep 0'"'"''
+<10.240.0.7> (0, b'', b'')
+ok: [10.240.0.7] => {
+    "changed": false,
+    "checksum": "122dcb9d57bb71b956262dc4092eb353fd73577a",
+    "dest": "/home/training/rain-test/sample-extract.tar",
+    "diff": {
+        "after": {
+            "path": "/home/training/rain-test/sample-extract.tar"
+        },
+        "before": {
+            "path": "/home/training/rain-test/sample-extract.tar"
+        }
+    },
+    "gid": 0,
+    "group": "root",
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": "sample-extract.tar",
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "backup": null,
+            "content": null,
+            "delimiter": null,
+            "dest": "/home/training/rain-test/sample-extract.tar",
+            "directory_mode": null,
+            "follow": true,
+            "force": false,
+            "group": "root",
+            "mode": "0644",
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": "root",
+            "path": "/home/training/rain-test/sample-extract.tar",
+            "recurse": false,
+            "regexp": null,
+            "remote_src": null,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "file",
+            "unsafe_writes": null
+        }
+    },
+    "mode": "0644",
+    "owner": "root",
+    "path": "/home/training/rain-test/sample-extract.tar",
+    "secontext": "unconfined_u:object_r:user_home_t:s0",
+    "size": 10240,
+    "state": "file",
+    "uid": 0
+}
+<10.240.0.8> (0, b'\r\n{"path": "/home/training/rain-test/sample-extract.tar", "changed": false, "diff": {"before": {"path": "/home/training/rain-test/sample-extract.tar"}, "after": {"path": "/home/training/rain-test/sample-extract.tar"}}, "uid": 0, "gid": 0, "owner": "root", "group": "root", "mode": "0644", "state": "file", "secontext": "unconfined_u:object_r:user_home_t:s0", "size": 10240, "invocation": {"module_args": {"owner": "root", "group": "root", "mode": "0644", "dest": "/home/training/rain-test/sample-extract.tar", "_original_basename": "sample-extract.tar", "recurse": false, "state": "file", "path": "/home/training/rain-test/sample-extract.tar", "force": false, "follow": true, "modification_time_format": "%Y%m%d%H%M.%S", "access_time_format": "%Y%m%d%H%M.%S", "_diff_peek": null, "src": null, "modification_time": null, "access_time": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null, "content": null, "backup": null, "remote_src": null, "regexp": null, "delimiter": null, "directory_mode": null, "unsafe_writes": null}}}\r\n', b'Shared connection to 10.240.0.8 closed.\r\n')
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb 10.240.0.8 '/bin/sh -c '"'"'rm -f -r /home/training/.ansible/tmp/ansible-tmp-1593854328.0194454-21364-122477275395609/ > /dev/null 2>&1 && sleep 0'"'"''
+<10.240.0.9> (0, b'', b'')
+ok: [10.240.0.9] => {
+    "changed": false,
+    "checksum": "122dcb9d57bb71b956262dc4092eb353fd73577a",
+    "dest": "/home/training/rain-test/sample-extract.tar",
+    "diff": {
+        "after": {
+            "path": "/home/training/rain-test/sample-extract.tar"
+        },
+        "before": {
+            "path": "/home/training/rain-test/sample-extract.tar"
+        }
+    },
+    "gid": 0,
+    "group": "root",
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": "sample-extract.tar",
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "backup": null,
+            "content": null,
+            "delimiter": null,
+            "dest": "/home/training/rain-test/sample-extract.tar",
+            "directory_mode": null,
+            "follow": true,
+            "force": false,
+            "group": "root",
+            "mode": "0644",
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": "root",
+            "path": "/home/training/rain-test/sample-extract.tar",
+            "recurse": false,
+            "regexp": null,
+            "remote_src": null,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "file",
+            "unsafe_writes": null
+        }
+    },
+    "mode": "0644",
+    "owner": "root",
+    "path": "/home/training/rain-test/sample-extract.tar",
+    "secontext": "unconfined_u:object_r:user_home_t:s0",
+    "size": 10240,
+    "state": "file",
+    "uid": 0
+}
+<10.240.0.8> (0, b'', b'')
+ok: [10.240.0.8] => {
+    "changed": false,
+    "checksum": "122dcb9d57bb71b956262dc4092eb353fd73577a",
+    "dest": "/home/training/rain-test/sample-extract.tar",
+    "diff": {
+        "after": {
+            "path": "/home/training/rain-test/sample-extract.tar"
+        },
+        "before": {
+            "path": "/home/training/rain-test/sample-extract.tar"
+        }
+    },
+    "gid": 0,
+    "group": "root",
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": "sample-extract.tar",
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "backup": null,
+            "content": null,
+            "delimiter": null,
+            "dest": "/home/training/rain-test/sample-extract.tar",
+            "directory_mode": null,
+            "follow": true,
+            "force": false,
+            "group": "root",
+            "mode": "0644",
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": "root",
+            "path": "/home/training/rain-test/sample-extract.tar",
+            "recurse": false,
+            "regexp": null,
+            "remote_src": null,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "file",
+            "unsafe_writes": null
+        }
+    },
+    "mode": "0644",
+    "owner": "root",
+    "path": "/home/training/rain-test/sample-extract.tar",
+    "secontext": "unconfined_u:object_r:user_home_t:s0",
+    "size": 10240,
+    "state": "file",
+    "uid": 0
+}
+
+TASK [Extract tar file] ***************************************************************************************************
+task path: /home/training/day1/rain-test/rain-transfer.yml:15
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca 10.240.0.7 '/bin/sh -c '"'"'echo ~training && sleep 0'"'"''
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb 10.240.0.8 '/bin/sh -c '"'"'echo ~training && sleep 0'"'"''
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 10.240.0.9 '/bin/sh -c '"'"'echo ~training && sleep 0'"'"''
+<10.240.0.7> (0, b'/home/training\n', b'')
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca 10.240.0.7 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/training/.ansible/tmp `"&& mkdir /home/training/.ansible/tmp/ansible-tmp-1593854329.4514732-21401-114464939747923 && echo ansible-tmp-1593854329.4514732-21401-114464939747923="` echo /home/training/.ansible/tmp/ansible-tmp-1593854329.4514732-21401-114464939747923 `" ) && sleep 0'"'"''
+<10.240.0.8> (0, b'/home/training\n', b'')
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb 10.240.0.8 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/training/.ansible/tmp `"&& mkdir /home/training/.ansible/tmp/ansible-tmp-1593854329.4701316-21402-230157493440167 && echo ansible-tmp-1593854329.4701316-21402-230157493440167="` echo /home/training/.ansible/tmp/ansible-tmp-1593854329.4701316-21402-230157493440167 `" ) && sleep 0'"'"''
+<10.240.0.9> (0, b'/home/training\n', b'')
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 10.240.0.9 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/training/.ansible/tmp `"&& mkdir /home/training/.ansible/tmp/ansible-tmp-1593854329.473988-21405-96341831436242 && echo ansible-tmp-1593854329.473988-21405-96341831436242="` echo /home/training/.ansible/tmp/ansible-tmp-1593854329.473988-21405-96341831436242 `" ) && sleep 0'"'"''
+<10.240.0.7> (0, b'ansible-tmp-1593854329.4514732-21401-114464939747923=/home/training/.ansible/tmp/ansible-tmp-1593854329.4514732-21401-114464939747923\n', b'')
+Using module file /usr/local/lib/python3.6/site-packages/ansible/modules/files/stat.py
+<10.240.0.7> PUT /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmpf04nc0fp TO /home/training/.ansible/tmp/ansible-tmp-1593854329.4514732-21401-114464939747923/AnsiballZ_stat.py
+<10.240.0.7> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca '[10.240.0.7]'
+<10.240.0.9> (0, b'ansible-tmp-1593854329.473988-21405-96341831436242=/home/training/.ansible/tmp/ansible-tmp-1593854329.473988-21405-96341831436242\n', b'')
+<10.240.0.8> (0, b'ansible-tmp-1593854329.4701316-21402-230157493440167=/home/training/.ansible/tmp/ansible-tmp-1593854329.4701316-21402-230157493440167\n', b'')
+Using module file /usr/local/lib/python3.6/site-packages/ansible/modules/files/stat.py
+<10.240.0.8> PUT /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmpq7a2e0rx TO /home/training/.ansible/tmp/ansible-tmp-1593854329.4701316-21402-230157493440167/AnsiballZ_stat.py
+<10.240.0.8> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb '[10.240.0.8]'
+Using module file /usr/local/lib/python3.6/site-packages/ansible/modules/files/stat.py
+<10.240.0.9> PUT /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmpm3nc0xtg TO /home/training/.ansible/tmp/ansible-tmp-1593854329.473988-21405-96341831436242/AnsiballZ_stat.py
+<10.240.0.9> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 '[10.240.0.9]'
+<10.240.0.7> (0, b'sftp> put /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmpf04nc0fp /home/training/.ansible/tmp/ansible-tmp-1593854329.4514732-21401-114464939747923/AnsiballZ_stat.py\n', b'')
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca 10.240.0.7 '/bin/sh -c '"'"'chmod u+x /home/training/.ansible/tmp/ansible-tmp-1593854329.4514732-21401-114464939747923/ /home/training/.ansible/tmp/ansible-tmp-1593854329.4514732-21401-114464939747923/AnsiballZ_stat.py && sleep 0'"'"''
+<10.240.0.7> (0, b'', b'')
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca -tt 10.240.0.7 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-tnnfphboiqyoeomzyethwregdqsbtyui ; /usr/libexec/platform-python /home/training/.ansible/tmp/ansible-tmp-1593854329.4514732-21401-114464939747923/AnsiballZ_stat.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<10.240.0.8> (0, b'sftp> put /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmpq7a2e0rx /home/training/.ansible/tmp/ansible-tmp-1593854329.4701316-21402-230157493440167/AnsiballZ_stat.py\n', b'')
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb 10.240.0.8 '/bin/sh -c '"'"'chmod u+x /home/training/.ansible/tmp/ansible-tmp-1593854329.4701316-21402-230157493440167/ /home/training/.ansible/tmp/ansible-tmp-1593854329.4701316-21402-230157493440167/AnsiballZ_stat.py && sleep 0'"'"''
+<10.240.0.9> (0, b'sftp> put /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmpm3nc0xtg /home/training/.ansible/tmp/ansible-tmp-1593854329.473988-21405-96341831436242/AnsiballZ_stat.py\n', b'')
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 10.240.0.9 '/bin/sh -c '"'"'chmod u+x /home/training/.ansible/tmp/ansible-tmp-1593854329.473988-21405-96341831436242/ /home/training/.ansible/tmp/ansible-tmp-1593854329.473988-21405-96341831436242/AnsiballZ_stat.py && sleep 0'"'"''
+Escalation succeeded
+<10.240.0.9> (0, b'', b'')
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 -tt 10.240.0.9 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-zgbnwixfrpexcwlzwhamigzcctxkuwzv ; /usr/libexec/platform-python /home/training/.ansible/tmp/ansible-tmp-1593854329.473988-21405-96341831436242/AnsiballZ_stat.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<10.240.0.8> (0, b'', b'')
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb -tt 10.240.0.8 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-tvcekccjlnirabcgpofrghoxjbthhvsu ; /usr/libexec/platform-python /home/training/.ansible/tmp/ansible-tmp-1593854329.4701316-21402-230157493440167/AnsiballZ_stat.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+Escalation succeeded
+Escalation succeeded
+<10.240.0.7> (0, b'\r\n{"changed": false, "stat": {"exists": true, "path": "/home/training/rain-test/", "mode": "0755", "isdir": true, "ischr": false, "isblk": false, "isreg": false, "isfifo": false, "islnk": false, "issock": false, "uid": 0, "gid": 0, "size": 141, "inode": 153012, "dev": 2050, "nlink": 2, "atime": 1593850033.5820324, "mtime": 1593853739.3053885, "ctime": 1593853739.3053885, "wusr": true, "rusr": true, "xusr": true, "wgrp": false, "rgrp": true, "xgrp": true, "woth": false, "roth": true, "xoth": true, "isuid": false, "isgid": false, "blocks": 0, "block_size": 4096, "device_type": 0, "readable": true, "writeable": true, "executable": true, "pw_name": "root", "gr_name": "root", "mimetype": "inode/directory", "charset": "binary", "version": "953983736", "attributes": [], "attr_flags": ""}, "invocation": {"module_args": {"path": "/home/training/rain-test/", "follow": true, "get_checksum": true, "checksum_algorithm": "sha1", "get_md5": false, "get_mime": true, "get_attributes": true}}}\r\n', b'Shared connection to 10.240.0.7 closed.\r\n')
+<10.240.0.9> (0, b'\r\n{"changed": false, "stat": {"exists": true, "path": "/home/training/rain-test/", "mode": "0755", "isdir": true, "ischr": false, "isblk": false, "isreg": false, "isfifo": false, "islnk": false, "issock": false, "uid": 0, "gid": 0, "size": 141, "inode": 33706142, "dev": 2050, "nlink": 2, "atime": 1593850818.8529787, "mtime": 1593853739.3178754, "ctime": 1593853739.3178754, "wusr": true, "rusr": true, "xusr": true, "wgrp": false, "rgrp": true, "xgrp": true, "woth": false, "roth": true, "xoth": true, "isuid": false, "isgid": false, "blocks": 0, "block_size": 4096, "device_type": 0, "readable": true, "writeable": true, "executable": true, "pw_name": "root", "gr_name": "root", "mimetype": "inode/directory", "charset": "binary", "version": "192562156", "attributes": [], "attr_flags": ""}, "invocation": {"module_args": {"path": "/home/training/rain-test/", "follow": true, "get_checksum": true, "checksum_algorithm": "sha1", "get_md5": false, "get_mime": true, "get_attributes": true}}}\r\n', b'Shared connection to 10.240.0.9 closed.\r\n')
+<10.240.0.8> (0, b'\r\n{"changed": false, "stat": {"exists": true, "path": "/home/training/rain-test/", "mode": "0755", "isdir": true, "ischr": false, "isblk": false, "isreg": false, "isfifo": false, "islnk": false, "issock": false, "uid": 0, "gid": 0, "size": 141, "inode": 33704016, "dev": 2050, "nlink": 2, "atime": 1593850033.599629, "mtime": 1593853739.3362834, "ctime": 1593853739.3362834, "wusr": true, "rusr": true, "xusr": true, "wgrp": false, "rgrp": true, "xgrp": true, "woth": false, "roth": true, "xoth": true, "isuid": false, "isgid": false, "blocks": 0, "block_size": 4096, "device_type": 0, "readable": true, "writeable": true, "executable": true, "pw_name": "root", "gr_name": "root", "mimetype": "inode/directory", "charset": "binary", "version": "1917796134", "attributes": [], "attr_flags": ""}, "invocation": {"module_args": {"path": "/home/training/rain-test/", "follow": true, "get_checksum": true, "checksum_algorithm": "sha1", "get_md5": false, "get_mime": true, "get_attributes": true}}}\r\n', b'Shared connection to 10.240.0.8 closed.\r\n')
+Using module file /usr/local/lib/python3.6/site-packages/ansible/modules/files/unarchive.py
+<10.240.0.7> PUT /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmph5gkv5wq TO /home/training/.ansible/tmp/ansible-tmp-1593854329.4514732-21401-114464939747923/AnsiballZ_unarchive.py
+<10.240.0.7> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca '[10.240.0.7]'
+Using module file /usr/local/lib/python3.6/site-packages/ansible/modules/files/unarchive.py
+<10.240.0.9> PUT /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmp4t217jiz TO /home/training/.ansible/tmp/ansible-tmp-1593854329.473988-21405-96341831436242/AnsiballZ_unarchive.py
+<10.240.0.9> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 '[10.240.0.9]'
+Using module file /usr/local/lib/python3.6/site-packages/ansible/modules/files/unarchive.py
+<10.240.0.8> PUT /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmpnetg0sos TO /home/training/.ansible/tmp/ansible-tmp-1593854329.4701316-21402-230157493440167/AnsiballZ_unarchive.py
+<10.240.0.8> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb '[10.240.0.8]'
+<10.240.0.7> (0, b'sftp> put /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmph5gkv5wq /home/training/.ansible/tmp/ansible-tmp-1593854329.4514732-21401-114464939747923/AnsiballZ_unarchive.py\n', b'')
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca 10.240.0.7 '/bin/sh -c '"'"'chmod u+x /home/training/.ansible/tmp/ansible-tmp-1593854329.4514732-21401-114464939747923/ /home/training/.ansible/tmp/ansible-tmp-1593854329.4514732-21401-114464939747923/AnsiballZ_unarchive.py && sleep 0'"'"''
+<10.240.0.9> (0, b'sftp> put /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmp4t217jiz /home/training/.ansible/tmp/ansible-tmp-1593854329.473988-21405-96341831436242/AnsiballZ_unarchive.py\n', b'')
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 10.240.0.9 '/bin/sh -c '"'"'chmod u+x /home/training/.ansible/tmp/ansible-tmp-1593854329.473988-21405-96341831436242/ /home/training/.ansible/tmp/ansible-tmp-1593854329.473988-21405-96341831436242/AnsiballZ_unarchive.py && sleep 0'"'"''
+<10.240.0.8> (0, b'sftp> put /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmpnetg0sos /home/training/.ansible/tmp/ansible-tmp-1593854329.4701316-21402-230157493440167/AnsiballZ_unarchive.py\n', b'')
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb 10.240.0.8 '/bin/sh -c '"'"'chmod u+x /home/training/.ansible/tmp/ansible-tmp-1593854329.4701316-21402-230157493440167/ /home/training/.ansible/tmp/ansible-tmp-1593854329.4701316-21402-230157493440167/AnsiballZ_unarchive.py && sleep 0'"'"''
+<10.240.0.7> (0, b'', b'')
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca -tt 10.240.0.7 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-sfkohoogrqhhsavipkiohkpyxgzrjdan ; /usr/libexec/platform-python /home/training/.ansible/tmp/ansible-tmp-1593854329.4514732-21401-114464939747923/AnsiballZ_unarchive.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<10.240.0.9> (0, b'', b'')
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 -tt 10.240.0.9 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-dhrtblrgebufkosivfhaglyahmcsuzqt ; /usr/libexec/platform-python /home/training/.ansible/tmp/ansible-tmp-1593854329.473988-21405-96341831436242/AnsiballZ_unarchive.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<10.240.0.8> (0, b'', b'')
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb -tt 10.240.0.8 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-zgzxqfmzmdkzzwbdlircjianfzkizcdo ; /usr/libexec/platform-python /home/training/.ansible/tmp/ansible-tmp-1593854329.4701316-21402-230157493440167/AnsiballZ_unarchive.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+Escalation succeeded
+Escalation succeeded
+Escalation succeeded
+<10.240.0.7> (0, b'\r\n{"handler": "TarArchive", "dest": "/home/training/rain-test/", "src": "/home/training/rain-test/sample-extract.tar", "changed": false, "uid": 0, "gid": 0, "owner": "root", "group": "root", "mode": "0755", "state": "directory", "secontext": "unconfined_u:object_r:user_home_t:s0", "size": 141, "invocation": {"module_args": {"src": "/home/training/rain-test/sample-extract.tar", "dest": "/home/training/rain-test/", "remote_src": true, "list_files": false, "keep_newer": false, "exclude": [], "extra_opts": [], "validate_certs": true, "follow": false, "creates": null, "mode": null, "owner": null, "group": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null, "force": null, "content": null, "backup": null, "regexp": null, "delimiter": null, "directory_mode": null, "unsafe_writes": null}}}\r\n', b'Shared connection to 10.240.0.7 closed.\r\n')
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca 10.240.0.7 '/bin/sh -c '"'"'rm -f -r /home/training/.ansible/tmp/ansible-tmp-1593854329.4514732-21401-114464939747923/ > /dev/null 2>&1 && sleep 0'"'"''
+<10.240.0.9> (0, b'\r\n{"handler": "TarArchive", "dest": "/home/training/rain-test/", "src": "/home/training/rain-test/sample-extract.tar", "changed": false, "uid": 0, "gid": 0, "owner": "root", "group": "root", "mode": "0755", "state": "directory", "secontext": "unconfined_u:object_r:user_home_t:s0", "size": 141, "invocation": {"module_args": {"src": "/home/training/rain-test/sample-extract.tar", "dest": "/home/training/rain-test/", "remote_src": true, "list_files": false, "keep_newer": false, "exclude": [], "extra_opts": [], "validate_certs": true, "follow": false, "creates": null, "mode": null, "owner": null, "group": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null, "force": null, "content": null, "backup": null, "regexp": null, "delimiter": null, "directory_mode": null, "unsafe_writes": null}}}\r\n', b'Shared connection to 10.240.0.9 closed.\r\n')
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 10.240.0.9 '/bin/sh -c '"'"'rm -f -r /home/training/.ansible/tmp/ansible-tmp-1593854329.473988-21405-96341831436242/ > /dev/null 2>&1 && sleep 0'"'"''
+<10.240.0.7> (0, b'', b'')
+ok: [10.240.0.7] => {
+    "changed": false,
+    "dest": "/home/training/rain-test/",
+    "gid": 0,
+    "group": "root",
+    "handler": "TarArchive",
+    "invocation": {
+        "module_args": {
+            "attributes": null,
+            "backup": null,
+            "content": null,
+            "creates": null,
+            "delimiter": null,
+            "dest": "/home/training/rain-test/",
+            "directory_mode": null,
+            "exclude": [],
+            "extra_opts": [],
+            "follow": false,
+            "force": null,
+            "group": null,
+            "keep_newer": false,
+            "list_files": false,
+            "mode": null,
+            "owner": null,
+            "regexp": null,
+            "remote_src": true,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": "/home/training/rain-test/sample-extract.tar",
+            "unsafe_writes": null,
+            "validate_certs": true
+        }
+    },
+    "mode": "0755",
+    "owner": "root",
+    "secontext": "unconfined_u:object_r:user_home_t:s0",
+    "size": 141,
+    "src": "/home/training/rain-test/sample-extract.tar",
+    "state": "directory",
+    "uid": 0
+}
+<10.240.0.9> (0, b'', b'')
+ok: [10.240.0.9] => {
+    "changed": false,
+    "dest": "/home/training/rain-test/",
+    "gid": 0,
+    "group": "root",
+    "handler": "TarArchive",
+    "invocation": {
+        "module_args": {
+            "attributes": null,
+            "backup": null,
+            "content": null,
+            "creates": null,
+            "delimiter": null,
+            "dest": "/home/training/rain-test/",
+            "directory_mode": null,
+            "exclude": [],
+            "extra_opts": [],
+            "follow": false,
+            "force": null,
+            "group": null,
+            "keep_newer": false,
+            "list_files": false,
+            "mode": null,
+            "owner": null,
+            "regexp": null,
+            "remote_src": true,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": "/home/training/rain-test/sample-extract.tar",
+            "unsafe_writes": null,
+            "validate_certs": true
+        }
+    },
+    "mode": "0755",
+    "owner": "root",
+    "secontext": "unconfined_u:object_r:user_home_t:s0",
+    "size": 141,
+    "src": "/home/training/rain-test/sample-extract.tar",
+    "state": "directory",
+    "uid": 0
+}
+<10.240.0.8> (0, b'\r\n{"handler": "TarArchive", "dest": "/home/training/rain-test/", "src": "/home/training/rain-test/sample-extract.tar", "changed": false, "uid": 0, "gid": 0, "owner": "root", "group": "root", "mode": "0755", "state": "directory", "secontext": "unconfined_u:object_r:user_home_t:s0", "size": 141, "invocation": {"module_args": {"src": "/home/training/rain-test/sample-extract.tar", "dest": "/home/training/rain-test/", "remote_src": true, "list_files": false, "keep_newer": false, "exclude": [], "extra_opts": [], "validate_certs": true, "follow": false, "creates": null, "mode": null, "owner": null, "group": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null, "force": null, "content": null, "backup": null, "regexp": null, "delimiter": null, "directory_mode": null, "unsafe_writes": null}}}\r\n', b'Shared connection to 10.240.0.8 closed.\r\n')
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb 10.240.0.8 '/bin/sh -c '"'"'rm -f -r /home/training/.ansible/tmp/ansible-tmp-1593854329.4701316-21402-230157493440167/ > /dev/null 2>&1 && sleep 0'"'"''
+<10.240.0.8> (0, b'', b'')
+ok: [10.240.0.8] => {
+    "changed": false,
+    "dest": "/home/training/rain-test/",
+    "gid": 0,
+    "group": "root",
+    "handler": "TarArchive",
+    "invocation": {
+        "module_args": {
+            "attributes": null,
+            "backup": null,
+            "content": null,
+            "creates": null,
+            "delimiter": null,
+            "dest": "/home/training/rain-test/",
+            "directory_mode": null,
+            "exclude": [],
+            "extra_opts": [],
+            "follow": false,
+            "force": null,
+            "group": null,
+            "keep_newer": false,
+            "list_files": false,
+            "mode": null,
+            "owner": null,
+            "regexp": null,
+            "remote_src": true,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": "/home/training/rain-test/sample-extract.tar",
+            "unsafe_writes": null,
+            "validate_certs": true
+        }
+    },
+    "mode": "0755",
+    "owner": "root",
+    "secontext": "unconfined_u:object_r:user_home_t:s0",
+    "size": 141,
+    "src": "/home/training/rain-test/sample-extract.tar",
+    "state": "directory",
+    "uid": 0
+}
+
+TASK [Run script] *********************************************************************************************************
+task path: /home/training/day1/rain-test/rain-transfer.yml:21
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca 10.240.0.7 '/bin/sh -c '"'"'echo ~training && sleep 0'"'"''
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb 10.240.0.8 '/bin/sh -c '"'"'echo ~training && sleep 0'"'"''
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 10.240.0.9 '/bin/sh -c '"'"'echo ~training && sleep 0'"'"''
+<10.240.0.7> (0, b'/home/training\n', b'')
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca 10.240.0.7 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/training/.ansible/tmp `"&& mkdir /home/training/.ansible/tmp/ansible-tmp-1593854330.9476075-21440-182953803215279 && echo ansible-tmp-1593854330.9476075-21440-182953803215279="` echo /home/training/.ansible/tmp/ansible-tmp-1593854330.9476075-21440-182953803215279 `" ) && sleep 0'"'"''
+<10.240.0.8> (0, b'/home/training\n', b'')
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb 10.240.0.8 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/training/.ansible/tmp `"&& mkdir /home/training/.ansible/tmp/ansible-tmp-1593854330.9676793-21441-49261329152696 && echo ansible-tmp-1593854330.9676793-21441-49261329152696="` echo /home/training/.ansible/tmp/ansible-tmp-1593854330.9676793-21441-49261329152696 `" ) && sleep 0'"'"''
+<10.240.0.9> (0, b'/home/training\n', b'')
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 10.240.0.9 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/training/.ansible/tmp `"&& mkdir /home/training/.ansible/tmp/ansible-tmp-1593854330.9803488-21444-36624006205039 && echo ansible-tmp-1593854330.9803488-21444-36624006205039="` echo /home/training/.ansible/tmp/ansible-tmp-1593854330.9803488-21444-36624006205039 `" ) && sleep 0'"'"''
+<10.240.0.7> (0, b'ansible-tmp-1593854330.9476075-21440-182953803215279=/home/training/.ansible/tmp/ansible-tmp-1593854330.9476075-21440-182953803215279\n', b'')
+<10.240.0.8> (0, b'ansible-tmp-1593854330.9676793-21441-49261329152696=/home/training/.ansible/tmp/ansible-tmp-1593854330.9676793-21441-49261329152696\n', b'')
+<10.240.0.9> (0, b'ansible-tmp-1593854330.9803488-21444-36624006205039=/home/training/.ansible/tmp/ansible-tmp-1593854330.9803488-21444-36624006205039\n', b'')
+Using module file /usr/local/lib/python3.6/site-packages/ansible/modules/commands/command.py
+<10.240.0.7> PUT /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmpzc_08f1_ TO /home/training/.ansible/tmp/ansible-tmp-1593854330.9476075-21440-182953803215279/AnsiballZ_command.py
+<10.240.0.7> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca '[10.240.0.7]'
+Using module file /usr/local/lib/python3.6/site-packages/ansible/modules/commands/command.py
+<10.240.0.8> PUT /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmp3a6lh8mp TO /home/training/.ansible/tmp/ansible-tmp-1593854330.9676793-21441-49261329152696/AnsiballZ_command.py
+<10.240.0.8> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb '[10.240.0.8]'
+Using module file /usr/local/lib/python3.6/site-packages/ansible/modules/commands/command.py
+<10.240.0.9> PUT /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmpyyu2q0os TO /home/training/.ansible/tmp/ansible-tmp-1593854330.9803488-21444-36624006205039/AnsiballZ_command.py
+<10.240.0.9> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 '[10.240.0.9]'
+<10.240.0.8> (0, b'sftp> put /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmp3a6lh8mp /home/training/.ansible/tmp/ansible-tmp-1593854330.9676793-21441-49261329152696/AnsiballZ_command.py\n', b'')
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb 10.240.0.8 '/bin/sh -c '"'"'chmod u+x /home/training/.ansible/tmp/ansible-tmp-1593854330.9676793-21441-49261329152696/ /home/training/.ansible/tmp/ansible-tmp-1593854330.9676793-21441-49261329152696/AnsiballZ_command.py && sleep 0'"'"''
+<10.240.0.9> (0, b'sftp> put /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmpyyu2q0os /home/training/.ansible/tmp/ansible-tmp-1593854330.9803488-21444-36624006205039/AnsiballZ_command.py\n', b'')
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 10.240.0.9 '/bin/sh -c '"'"'chmod u+x /home/training/.ansible/tmp/ansible-tmp-1593854330.9803488-21444-36624006205039/ /home/training/.ansible/tmp/ansible-tmp-1593854330.9803488-21444-36624006205039/AnsiballZ_command.py && sleep 0'"'"''
+<10.240.0.7> (0, b'sftp> put /home/training/.ansible/tmp/ansible-local-2131313ptu5b4/tmpzc_08f1_ /home/training/.ansible/tmp/ansible-tmp-1593854330.9476075-21440-182953803215279/AnsiballZ_command.py\n', b'')
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca 10.240.0.7 '/bin/sh -c '"'"'chmod u+x /home/training/.ansible/tmp/ansible-tmp-1593854330.9476075-21440-182953803215279/ /home/training/.ansible/tmp/ansible-tmp-1593854330.9476075-21440-182953803215279/AnsiballZ_command.py && sleep 0'"'"''
+<10.240.0.9> (0, b'', b'')
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 -tt 10.240.0.9 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-lnpihaykilmhcncnkfdpyjjvedemgegq ; /usr/libexec/platform-python /home/training/.ansible/tmp/ansible-tmp-1593854330.9803488-21444-36624006205039/AnsiballZ_command.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<10.240.0.8> (0, b'', b'')
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb -tt 10.240.0.8 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-yeuohkrunraadasfgdsrafnsdtcoqkhb ; /usr/libexec/platform-python /home/training/.ansible/tmp/ansible-tmp-1593854330.9676793-21441-49261329152696/AnsiballZ_command.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<10.240.0.7> (0, b'', b'')
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca -tt 10.240.0.7 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-ytqaxydhfolgkeibwzppkkqygutyqfhi ; /usr/libexec/platform-python /home/training/.ansible/tmp/ansible-tmp-1593854330.9476075-21440-182953803215279/AnsiballZ_command.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+Escalation succeeded
+Escalation succeeded
+Escalation succeeded
+<10.240.0.7> (0, b'\r\n{"cmd": "/home/training/rain-test/check-disk.sh", "stdout": "user1-node0\\nFilesystem      Size  Used Avail Use% Mounted on\\ndevtmpfs        1.8G     0  1.8G   0% /dev\\ntmpfs           1.8G     0  1.8G   0% /dev/shm\\ntmpfs           1.8G  8.4M  1.8G   1% /run\\ntmpfs           1.8G     0  1.8G   0% /sys/fs/cgroup\\n/dev/sda2        20G  3.3G   17G  17% /\\n/dev/sda1       200M  6.8M  194M   4% /boot/efi\\ntmpfs           353M     0  353M   0% /run/user/1000", "stderr": "", "rc": 0, "start": "2020-07-04 09:18:51.616087", "end": "2020-07-04 09:18:51.624388", "delta": "0:00:00.008301", "changed": true, "invocation": {"module_args": {"_raw_params": "/home/training/rain-test/check-disk.sh", "_uses_shell": true, "warn": true, "stdin_add_newline": true, "strip_empty_ends": true, "argv": null, "chdir": null, "executable": null, "creates": null, "removes": null, "stdin": null}}}\r\n', b'Shared connection to 10.240.0.7 closed.\r\n')
+<10.240.0.7> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/3b1153bcca 10.240.0.7 '/bin/sh -c '"'"'rm -f -r /home/training/.ansible/tmp/ansible-tmp-1593854330.9476075-21440-182953803215279/ > /dev/null 2>&1 && sleep 0'"'"''
+<10.240.0.9> (0, b'\r\n{"cmd": "/home/training/rain-test/check-disk.sh", "stdout": "user1-node2\\nFilesystem      Size  Used Avail Use% Mounted on\\ndevtmpfs        1.8G     0  1.8G   0% /dev\\ntmpfs           1.8G     0  1.8G   0% /dev/shm\\ntmpfs           1.8G  8.4M  1.8G   1% /run\\ntmpfs           1.8G     0  1.8G   0% /sys/fs/cgroup\\n/dev/sda2        20G  3.5G   17G  18% /\\n/dev/sda1       200M  6.8M  194M   4% /boot/efi\\ntmpfs           353M     0  353M   0% /run/user/1000", "stderr": "", "rc": 0, "start": "2020-07-04 09:18:51.623069", "end": "2020-07-04 09:18:51.631785", "delta": "0:00:00.008716", "changed": true, "invocation": {"module_args": {"_raw_params": "/home/training/rain-test/check-disk.sh", "_uses_shell": true, "warn": true, "stdin_add_newline": true, "strip_empty_ends": true, "argv": null, "chdir": null, "executable": null, "creates": null, "removes": null, "stdin": null}}}\r\n', b'Shared connection to 10.240.0.9 closed.\r\n')
+<10.240.0.9> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.9> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/9436771da7 10.240.0.9 '/bin/sh -c '"'"'rm -f -r /home/training/.ansible/tmp/ansible-tmp-1593854330.9803488-21444-36624006205039/ > /dev/null 2>&1 && sleep 0'"'"''
+<10.240.0.8> (0, b'\r\n{"cmd": "/home/training/rain-test/check-disk.sh", "stdout": "user1-node1\\nFilesystem      Size  Used Avail Use% Mounted on\\ndevtmpfs        1.8G     0  1.8G   0% /dev\\ntmpfs           1.8G     0  1.8G   0% /dev/shm\\ntmpfs           1.8G  8.4M  1.8G   1% /run\\ntmpfs           1.8G     0  1.8G   0% /sys/fs/cgroup\\n/dev/sda2        20G  3.6G   17G  18% /\\n/dev/sda1       200M  6.8M  194M   4% /boot/efi\\ntmpfs           353M     0  353M   0% /run/user/1000", "stderr": "", "rc": 0, "start": "2020-07-04 09:18:51.650347", "end": "2020-07-04 09:18:51.661288", "delta": "0:00:00.010941", "changed": true, "invocation": {"module_args": {"_raw_params": "/home/training/rain-test/check-disk.sh", "_uses_shell": true, "warn": true, "stdin_add_newline": true, "strip_empty_ends": true, "argv": null, "chdir": null, "executable": null, "creates": null, "removes": null, "stdin": null}}}\r\n', b'Shared connection to 10.240.0.8 closed.\r\n')
+<10.240.0.8> ESTABLISH SSH CONNECTION FOR USER: training
+<10.240.0.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/training/day1/training.key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="training"' -o ConnectTimeout=10 -o ControlPath=/home/training/.ansible/cp/1d67ba57eb 10.240.0.8 '/bin/sh -c '"'"'rm -f -r /home/training/.ansible/tmp/ansible-tmp-1593854330.9676793-21441-49261329152696/ > /dev/null 2>&1 && sleep 0'"'"''
+<10.240.0.7> (0, b'', b'')
+<10.240.0.9> (0, b'', b'')
+changed: [10.240.0.7] => {
+    "changed": true,
+    "cmd": "/home/training/rain-test/check-disk.sh",
+    "delta": "0:00:00.008301",
+    "end": "2020-07-04 09:18:51.624388",
+    "invocation": {
+        "module_args": {
+            "_raw_params": "/home/training/rain-test/check-disk.sh",
+            "_uses_shell": true,
+            "argv": null,
+            "chdir": null,
+            "creates": null,
+            "executable": null,
+            "removes": null,
+            "stdin": null,
+            "stdin_add_newline": true,
+            "strip_empty_ends": true,
+            "warn": true
+        }
+    },
+    "rc": 0,
+    "start": "2020-07-04 09:18:51.616087",
+    "stderr": "",
+    "stderr_lines": [],
+    "stdout": "user1-node0\nFilesystem      Size  Used Avail Use% Mounted on\ndevtmpfs        1.8G     0  1.8G   0% /dev\ntmpfs           1.8G     0  1.8G   0% /dev/shm\ntmpfs           1.8G  8.4M  1.8G   1% /run\ntmpfs           1.8G     0  1.8G   0% /sys/fs/cgroup\n/dev/sda2        20G  3.3G   17G  17% /\n/dev/sda1       200M  6.8M  194M   4% /boot/efi\ntmpfs           353M     0  353M   0% /run/user/1000",
+    "stdout_lines": [
+        "user1-node0",
+        "Filesystem      Size  Used Avail Use% Mounted on",
+        "devtmpfs        1.8G     0  1.8G   0% /dev",
+        "tmpfs           1.8G     0  1.8G   0% /dev/shm",
+        "tmpfs           1.8G  8.4M  1.8G   1% /run",
+        "tmpfs           1.8G     0  1.8G   0% /sys/fs/cgroup",
+        "/dev/sda2        20G  3.3G   17G  17% /",
+        "/dev/sda1       200M  6.8M  194M   4% /boot/efi",
+        "tmpfs           353M     0  353M   0% /run/user/1000"
+    ]
+}
+changed: [10.240.0.9] => {
+    "changed": true,
+    "cmd": "/home/training/rain-test/check-disk.sh",
+    "delta": "0:00:00.008716",
+    "end": "2020-07-04 09:18:51.631785",
+    "invocation": {
+        "module_args": {
+            "_raw_params": "/home/training/rain-test/check-disk.sh",
+            "_uses_shell": true,
+            "argv": null,
+            "chdir": null,
+            "creates": null,
+            "executable": null,
+            "removes": null,
+            "stdin": null,
+            "stdin_add_newline": true,
+            "strip_empty_ends": true,
+            "warn": true
+        }
+    },
+    "rc": 0,
+    "start": "2020-07-04 09:18:51.623069",
+    "stderr": "",
+    "stderr_lines": [],
+    "stdout": "user1-node2\nFilesystem      Size  Used Avail Use% Mounted on\ndevtmpfs        1.8G     0  1.8G   0% /dev\ntmpfs           1.8G     0  1.8G   0% /dev/shm\ntmpfs           1.8G  8.4M  1.8G   1% /run\ntmpfs           1.8G     0  1.8G   0% /sys/fs/cgroup\n/dev/sda2        20G  3.5G   17G  18% /\n/dev/sda1       200M  6.8M  194M   4% /boot/efi\ntmpfs           353M     0  353M   0% /run/user/1000",
+    "stdout_lines": [
+        "user1-node2",
+        "Filesystem      Size  Used Avail Use% Mounted on",
+        "devtmpfs        1.8G     0  1.8G   0% /dev",
+        "tmpfs           1.8G     0  1.8G   0% /dev/shm",
+        "tmpfs           1.8G  8.4M  1.8G   1% /run",
+        "tmpfs           1.8G     0  1.8G   0% /sys/fs/cgroup",
+        "/dev/sda2        20G  3.5G   17G  18% /",
+        "/dev/sda1       200M  6.8M  194M   4% /boot/efi",
+        "tmpfs           353M     0  353M   0% /run/user/1000"
+    ]
+}
+<10.240.0.8> (0, b'', b'')
+changed: [10.240.0.8] => {
+    "changed": true,
+    "cmd": "/home/training/rain-test/check-disk.sh",
+    "delta": "0:00:00.010941",
+    "end": "2020-07-04 09:18:51.661288",
+    "invocation": {
+        "module_args": {
+            "_raw_params": "/home/training/rain-test/check-disk.sh",
+            "_uses_shell": true,
+            "argv": null,
+            "chdir": null,
+            "creates": null,
+            "executable": null,
+            "removes": null,
+            "stdin": null,
+            "stdin_add_newline": true,
+            "strip_empty_ends": true,
+            "warn": true
+        }
+    },
+    "rc": 0,
+    "start": "2020-07-04 09:18:51.650347",
+    "stderr": "",
+    "stderr_lines": [],
+    "stdout": "user1-node1\nFilesystem      Size  Used Avail Use% Mounted on\ndevtmpfs        1.8G     0  1.8G   0% /dev\ntmpfs           1.8G     0  1.8G   0% /dev/shm\ntmpfs           1.8G  8.4M  1.8G   1% /run\ntmpfs           1.8G     0  1.8G   0% /sys/fs/cgroup\n/dev/sda2        20G  3.6G   17G  18% /\n/dev/sda1       200M  6.8M  194M   4% /boot/efi\ntmpfs           353M     0  353M   0% /run/user/1000",
+    "stdout_lines": [
+        "user1-node1",
+        "Filesystem      Size  Used Avail Use% Mounted on",
+        "devtmpfs        1.8G     0  1.8G   0% /dev",
+        "tmpfs           1.8G     0  1.8G   0% /dev/shm",
+        "tmpfs           1.8G  8.4M  1.8G   1% /run",
+        "tmpfs           1.8G     0  1.8G   0% /sys/fs/cgroup",
+        "/dev/sda2        20G  3.6G   17G  18% /",
+        "/dev/sda1       200M  6.8M  194M   4% /boot/efi",
+        "tmpfs           353M     0  353M   0% /run/user/1000"
+    ]
+}
+META: ran handlers
+META: ran handlers
+
+PLAY RECAP ****************************************************************************************************************
+10.240.0.7                 : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+10.240.0.8                 : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+10.240.0.9                 : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
