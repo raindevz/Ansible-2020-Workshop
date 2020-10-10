@@ -1,0 +1,10 @@
+Oct 10, 2020
+
+GIT 101:
+
+1. Create new git repo: git init
+2. Create a copy of an existing repo: git clone username@host:/path_to_repo
+3. Add changes to Staging/Index: git add <filename> or git add *
+4. Commit changes: git commit -m "Commit Message"
+5. To connect and push changes to another repo: git remote add origin <repo link>
+6. Push change to remote repo: git push origin <master/branch>
